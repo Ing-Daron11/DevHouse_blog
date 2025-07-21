@@ -1,8 +1,11 @@
-import { Github, Linkedin, Twitter, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
+import { FaWhatsapp } from "react-icons/fa";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const message = "Hola, me interesa conocer más sobre los servicios de Loop & Logic DevHouse. ¿Podrían darme más información?";
 
   return (
     <footer className="relative bg-gradient-dark border-t border-border/50">
@@ -25,25 +28,11 @@ export const Footer = () => {
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="#"
+                  href={`https://wa.me/3025922818?text=${message}`}
                   className="p-2 bg-secondary rounded-lg hover:bg-primary/20 transition-colors duration-300 group"
-                  aria-label="LinkedIn"
+                  aria-label="WhatsApp"
                 >
-                  <Linkedin className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 bg-secondary rounded-lg hover:bg-primary/20 transition-colors duration-300 group"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 bg-secondary rounded-lg hover:bg-primary/20 transition-colors duration-300 group"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <FaWhatsapp className="h-5 w-5 text-green-500 group-hover:text-primary transition-colors" />
                 </a>
               </div>
             </div>
@@ -109,10 +98,10 @@ export const Footer = () => {
                 <div className="flex items-center">
                   <Mail className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
                   <a
-                    href="mailto:hola@looplogic.dev"
+                    href="mailto:looplogicdevhouse@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
                   >
-                    hola@looplogic.dev
+                    looplogicdevhouse@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center">
@@ -121,34 +110,17 @@ export const Footer = () => {
                     href="tel:+5215512345678"
                     className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
                   >
-                    +52 55 1234 5678
+                    +57 302 5922818
                   </a>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
                   <span className="text-muted-foreground text-sm">
-                    Ciudad de México, MX
+                    Guadalajara de Buga, Colombia.
                   </span>
                 </div>
               </div>
 
-              {/* Newsletter */}
-              <div className="mt-6 p-4 bg-secondary/50 rounded-xl border border-border/50">
-                <h5 className="text-sm font-semibold text-foreground mb-2">Newsletter</h5>
-                <p className="text-xs text-muted-foreground mb-3">
-                  Recibe tips tecnológicos y novedades
-                </p>
-                <div className="flex">
-                  <input
-                    type="email"
-                    placeholder="tu@email.com"
-                    className="flex-1 px-3 py-2 bg-input border border-border rounded-l-lg text-sm focus:ring-1 focus:ring-primary focus:border-primary transition-all duration-300"
-                  />
-                  <button className="px-4 py-2 bg-gradient-primary text-white rounded-r-lg hover:opacity-90 transition-opacity duration-300">
-                    <Mail className="h-4 w-4" />
-                  </button>
-                </div>
-              </div>
             </div>
           </AnimatedSection>
         </div>

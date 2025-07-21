@@ -182,7 +182,7 @@ export const ContactSection = () => {
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Email</div>
-                      <div className="text-muted-foreground">hola@looplogic.dev</div>
+                      <div className="text-muted-foreground">looplogicdevhouse@gmail.com</div>
                     </div>
                   </div>
                   
@@ -192,7 +192,7 @@ export const ContactSection = () => {
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Teléfono</div>
-                      <div className="text-muted-foreground">+1 (555) 123-4567</div>
+                      <div className="text-muted-foreground">+57 302 5922818</div>
                     </div>
                   </div>
                   
@@ -202,7 +202,7 @@ export const ContactSection = () => {
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Ubicación</div>
-                      <div className="text-muted-foreground">Ciudad de México, MX</div>
+                      <div className="text-muted-foreground">Guadalajara de Buga, Colombia</div>
                     </div>
                   </div>
                 </div>
