@@ -13,7 +13,6 @@ const Index = () => {
       <TestimonialsSection />
       <ContactSection />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

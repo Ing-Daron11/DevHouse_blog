@@ -220,6 +220,16 @@ export const ContactSection = () => {
                         <div className="text-muted-foreground hover:text-primary">looplogicdevhouse</div>
                       </div>
                     </a>
+                  
+                  <div className="flex items-center">
+                    <div className="p-3 bg-gradient-primary rounded-xl mr-4">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-semibold text-foreground">Ubicación</div>
+                      <div className="text-muted-foreground">Guadalajara de Buga, Colombia</div>
+                    </div>
+                    </div>
                   </div>
                 </div>
               </div>
