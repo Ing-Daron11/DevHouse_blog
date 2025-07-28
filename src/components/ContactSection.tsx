@@ -179,13 +179,13 @@ export const ContactSection = () => {
                 </h3>
                 
                 <div className="space-y-6">
-                  <div className="flex items-center">
+                  <div className="flex items-center cursor-pointer">
                     <div className="p-3 bg-gradient-primary rounded-xl mr-4">
                       <Mail className="h-6 w-6 text-white" />
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Email</div>
-                      <div className="text-muted-foreground hover:text-primary">looplogicdevhouse@gmail.com</div>
+                      <div className="text-muted-foreground hover:text-accent">looplogicdevhouse@gmail.com</div>
                     </div>
                   </div>
                   
@@ -200,7 +200,7 @@ export const ContactSection = () => {
                       </div>
                       <div>
                         <div className="font-semibold text-foreground">Teléfono</div>
-                        <div className="text-muted-foreground hover:text-primary">+57 302 5922818</div>
+                        <div className="text-muted-foreground hover:text-accent">+57 302 5922818</div>
                       </div>
                     </a>
                   </div>
@@ -217,18 +217,18 @@ export const ContactSection = () => {
                       </div>
                       <div>
                         <div className="font-semibold text-foreground">Instagram</div>
-                        <div className="text-muted-foreground hover:text-primary">looplogicdevhouse</div>
+                        <div className="text-muted-foreground hover:text-accent">looplogicdevhouse</div>
                       </div>
                     </a>
-                  
-                  <div className="flex items-center">
+                  </div>
+
+                  <div className="flex items-center cursor-pointer">
                     <div className="p-3 bg-gradient-primary rounded-xl mr-4">
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Ubicación</div>
                       <div className="text-muted-foreground">Guadalajara de Buga, Colombia</div>
-                    </div>
                     </div>
                   </div>
                 </div>

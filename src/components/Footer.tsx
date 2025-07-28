@@ -29,10 +29,10 @@ export const Footer = () => {
               <div className="flex space-x-4">
                 <a
                   href={`https://wa.me/3025922818?text=${message}`}
-                  className="p-2 bg-secondary rounded-lg hover:bg-primary/20 transition-colors duration-300 group"
+                  className="p-2 bg-secondary rounded-lg hover:bg-accent-foreground/20 transition-colors duration-300 group"
                   aria-label="WhatsApp"
                 >
-                  <FaWhatsapp className="h-5 w-5 text-green-500 group-hover:text-primary transition-colors" />
+                  <FaWhatsapp className="h-5 w-5 text-green-500 group-hover:text-accent transition-colors" />
                 </a>
               </div>
             </div>
@@ -96,41 +96,43 @@ export const Footer = () => {
               <h4 className="text-lg font-semibold text-foreground mb-6">Contacto</h4>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <Mail className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
+                  <Mail className="h-4 w-4 text-accent mr-3 flex-shrink-0" />
                   <a
                     href="mailto:looplogicdevhouse@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300 text-sm"
                   >
                     looplogicdevhouse@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <Phone className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
+                  <Phone className="h-4 w-4 text-accent mr-3 flex-shrink-0" />
                   <a
                     href="https://wa.me/573025922818"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300 text-sm"
                   >
                     +57 302 5922818
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <FaInstagram className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
+                  <FaInstagram className="h-4 w-4 text-accent mr-3 flex-shrink-0" />
                   <a
                     href="https://www.instagram.com/looplogicdevhouse?utm_source=qr&igsh=NXZod2lhMzFhYXdq"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+                    className="text-muted-foreground hover:text-accent transition-colors duration-300 text-sm"
                   >
                     looplogicdevhouse
                   </a>     
                 </div>
                   
-                <div className='flex items-center'>
-                  <MapPin className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
+                <div className='flex items-center cursor-pointer'>
+                  <MapPin className="h-4 w-4 text-accent mr-3 flex-shrink-0" />
                   <span className="text-muted-foreground text-sm">
-                    Guadalajara de Buga, Colombia.
+                    <a className="text-muted-foreground hover:text-accent transition-colors duration-300 text-sm">
+                      Guadalajara de Buga, Colombia.
+                    </a>
                   </span>
                 </div>
               </div>

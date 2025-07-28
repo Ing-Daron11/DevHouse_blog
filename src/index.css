@@ -21,12 +21,12 @@
     /* Electric blue primary */
     --primary: 270 100% 25.5%; /* rgb(75, 0, 130) - Tu púrpura más claro */
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 270 100% 40%;
+    --primary-glow: 270 100% 55%;
 
     /* Emerald accent */
     --accent: 180 100% 50%; /* CIan brillante para acentos */
     --accent-foreground: 0 0% 6%; /* Texto oscuro sobre accent si es muy brillante */
-    --accent-glow: 180 100% 65%; /* Brillo del accent más intenso */
+    --accent-glow: 180 100% 80%; /* Brillo del accent más intenso */
 
     --secondary: 270 100% 25.5%; /* rgb(75, 0, 130) */
     --secondary-foreground: 0 0% 98%;
@@ -49,9 +49,9 @@
     --gradient-card: linear-gradient(to bottom, hsl(270 100% 20%), hsl(240 100% 8%)); /* Gradiente más sutil para tarjetas (de púrpura oscuro a azul muy oscuro) */    
 
     /* Premium shadows */
-    --shadow-premium: 0 25px 50px -12px hsl(0 0% 0% / 0.4);
-    --shadow-glow: 0 0 40px hsl(270 100% 40% / 0.3); /* Ajustado a primary glow */
-    --shadow-accent-glow: 0 0 40px hsl(180 100% 60% / 0.3); /* Ajustado a accent glow */
+    --shadow-premium: 0 25px 50px -12px hsl(0 0% 0% / 0.5); 
+    --shadow-glow: 0 0 60px hsl(270 100% 55% / 0.5); /* Sombra de brillo más potente (de 50px a 60px, y opacidad a 0.5) */
+    --shadow-accent-glow: 0 0 60px hsl(180 100% 80% / 0.5); /* Sombra de brillo de acento más potente */
 
     /* Animation timings */
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -143,7 +143,31 @@
   }
 
   .card-floating {
-    @apply card-premium transform hover:-translate-y-2 hover:shadow-glow;
+    @apply card-premium transform hover:-translate-y-2;
+  }
+
+  .card-floating .hover-glow-overlay {
+    @apply absolute inset-0 rounded-2xl pointer-events-none;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--primary-glow) / 0.15) 0%, transparent 70%); /* Gradiente radial sutil que sigue el ratón */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out; /* Transición para opacidad y posible transform */
+    transform: scale(0.98); /* Ligera escala inicial */
+    filter: blur(8px); /* Efecto de desenfoque */
+    box-shadow: 0 0 20px hsl(var(--primary-glow) / 0.5); /* Sombra que "brilla" */
+  }
+
+  .card-floating:hover .hover-glow-overlay {
+    opacity: 1; /* Al hacer hover, la opacidad total de este overlay */
+    transform: scale(1);
+  }
+
+  /* También mejora el icono al hacer hover */
+  .card-floating .icon-wrapper { /* Añade esta clase al div p-3 */
+    @apply p-3 bg-gradient-primary rounded-xl mr-4 transition-all duration-300;
+  }
+  .card-floating:hover .icon-wrapper {
+    @apply scale-110;
+    box-shadow: 0 0 15px hsl(var(--primary-glow) / 0.6); /* Brillo alrededor del icono */
   }
 
   /* Text gradients */

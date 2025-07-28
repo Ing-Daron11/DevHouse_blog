@@ -78,7 +78,7 @@ export const ServicesSection = () => {
             >
               <div className="card-floating h-full group cursor-pointer">
                 <div className="flex items-center mb-6">
-                  <div className="p-3 bg-gradient-primary rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300">
+                  <div className="icon-wrapper">
                     <service.icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">
@@ -90,7 +90,7 @@ export const ServicesSection = () => {
                 </p>
                 
                 {/* Hover glow effect */}
-                <div className="absolute inset-0 bg-gradient-primary rounded-2xl opacity-0 group-hover:opacity-5 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="hover-glow-overlay"></div>
               </div>
             </AnimatedSection>
           ))}
