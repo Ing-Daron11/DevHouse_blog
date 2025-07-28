@@ -1,43 +1,61 @@
-import { Globe, Brain, Database, TrendingUp, MessageCircle, Zap } from 'lucide-react';
+import { Globe, Brain, Database, TrendingUp, MessageCircle, Zap, Code, ShieldCheck, Palette, Lightbulb, BellRing } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
+import { title } from 'process';
 
 const services = [
   {
     icon: Globe,
     title: 'Diseño y Desarrollo Web',
-    description: 'Sitios web modernos, responsivos y optimizados para conversión con las últimas tecnologías.'
+    description: 'Creamos sitios web modernos y atractivos, 100% adaptables a cualquier dispositivo (responsive), optimizados para captar clientes y posicionamiento SEO.'
   },
   {
     icon: Brain,
     title: 'Automatizaciones con IA',
-    description: 'Integra inteligencia artificial para automatizar procesos y mejorar la eficiencia de tu negocio.'
+    description: 'Integramos Inteligencia Artificial para optimizar procesos clave, mejorar la eficiencia operativa y potenciar el crecimiento de tu negocio.'
   },
   {
     icon: Database,
     title: 'CRMs y ERPs',
-    description: 'Sistemas de gestión empresarial personalizados que escalan con tu negocio.'
+    description: 'Implementamos sistemas CRMs y ERPs personalizados para centralizar tu información, optimizar la gestión y asegurar el crecimiento escalable de tu empresa.'
   },
   {
     icon: TrendingUp,
     title: 'Marketing Digital',
-    description: 'Estrategias digitales integrales para hacer crecer tu presencia online y generar más ventas.'
+    description: 'Desarrollamos estrategias digitales integrales que aumentan tu visibilidad online, atraen a tu público ideal y generan resultados medibles en ventas.'
   },
   {
     icon: MessageCircle,
     title: 'Chatbots y WhatsApp Business',
-    description: 'Automatiza la atención al cliente con chatbots inteligentes y WhatsApp Business API.'
+    description: 'Automatizamos tu atención al cliente 24/7 con chatbots inteligentes y WhatsApp Business API, ofreciendo respuestas instantáneas y una experiencia superior.'
   },
   {
     icon: Zap,
     title: 'Soluciones a Medida',
-    description: 'Desarrollamos tecnología específica para resolver los desafíos únicos de tu industria.'
+    description: 'Creamos tecnología específica para resolver los desafíos únicos de tu industria. Innovación con un soporte constante para asegurar tu éxito a largo plazo.'
+  },
+
+  //--- NUEVOS SERVICIOS --- //
+  {
+    icon: ShieldCheck,
+    title: 'Ciberseguridad y Protección de Datos',
+    description: 'Protegemos tu información y sistemas con soluciones robustas de ciberseguridad, garantizando la integridad y confidencialidad de tus activos digitales.'
+  },
+  {
+    icon: Palette, 
+    title: 'Identidad Visual y Branding Digital',
+    description: 'Construimos una marca digital coherente y atractiva, desde el diseño de logo hasta la guía de estilo, que resuene con tu audiencia.'
+  },
+  {
+    icon: BellRing,
+    title: 'Soporte Técnico Especializado',
+    description: 'Ofrecemos soporte técnico proactivo y reactivo para todas tus soluciones digitales, asegurando la continuidad operativa y minimizando interrupciones.'
   }
 ];
 
 export const ServicesSection = () => {
   return (
     <section className="py-24 relative overflow-hidden">
-      {/* Background gradient */}
+      {/* Background gradient*/}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/50 to-background"></div>
       
       <div className="container mx-auto px-6 relative z-10">

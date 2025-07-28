@@ -1,5 +1,6 @@
 import { Github, Linkedin, Twitter, Mail, Phone, MapPin, Sparkles } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
+import { FaInstagram } from 'react-icons/fa'
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -109,26 +110,33 @@ export const Footer = () => {
                 <div className="flex items-center">
                   <Mail className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
                   <a
-                    href="mailto:hola@looplogic.dev"
+                    href="mailto:looplogicdevhouse@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
                   >
-                    hola@looplogic.dev
+                    looplogicdevhouse@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center">
                   <Phone className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
                   <a
-                    href="tel:+5215512345678"
+                    href="https://wa.me/573025922818"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
                   >
-                    +52 55 1234 5678
+                    +57 302 5922818
                   </a>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
-                  <span className="text-muted-foreground text-sm">
-                    Ciudad de México, MX
-                  </span>
+                  <FaInstagram className="h-4 w-4 text-primary mr-3 flex-shrink-0" />
+                  <a
+                    href="https://www.instagram.com/looplogicdevhouse?utm_source=qr&igsh=NXZod2lhMzFhYXdq"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-primary transition-colors duration-300 text-sm"
+                  >
+                    looplogicdevhouse
+                  </a>
                 </div>
               </div>
 

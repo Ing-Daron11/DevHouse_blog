@@ -6,7 +6,7 @@ export const WhatsAppFloat = () => {
     const message = encodeURIComponent(
       '¡Hola! Me interesa conocer más sobre los servicios de Loop & Logic DevHouse. ¿Podrían darme más información?'
     );
-    const whatsappUrl = `https://wa.me/5215512345678?text=${message}`;
+    const whatsappUrl = `https://wa.me/573025922818?text=${message}`;
     window.open(whatsappUrl, '_blank');
   };
 

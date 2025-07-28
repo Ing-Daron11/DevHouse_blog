@@ -42,72 +42,72 @@ const StatsCounter = ({ value, label }: { value: number; label: string }) => {
 export const TestimonialsSection = () => {
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/50 to-background"></div>
       
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection animation="fade-in-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-gradient">Casos de Éxito</span>
+            <span className="text-gradient">Nuestro Compromiso: Tu Éxito Digital</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Descubre cómo hemos ayudado a empresas como la tuya a alcanzar el éxito digital
+            En Loop & Logic, nos dedicamos a transformar negocios como el tuyo. Conoce lo que te garantizamos al trabajar con nosotros.
           </p>
         </AnimatedSection>
 
-        {/* Stats */}
-        <AnimatedSection animation="fade-in-up" delay={200}>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
-            <StatsCounter value={150} label="Proyectos Exitosos" />
-            <StatsCounter value={98} label="% Satisfacción" />
-            <StatsCounter value={50} label="Empresas Atendidas" />
-            <StatsCounter value={24} label="Meses Experiencia" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"> {/* Ajustado a 4 columnas */}
+          {/* Reemplazamos las estadísticas falsas por pilares de tu servicio */}
+          <AnimatedSection animation="fade-in-up" delay={0} className="text-center">
+            <div className="card-floating p-6 h-full">
+              <h3 className="text-4xl font-bold text-gradient mb-2">100%</h3> {/* Esto es una promesa, no una estadística */}
+              <p className="text-muted-foreground">Enfoque en tu Crecimiento</p>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-in-up" delay={100} className="text-center">
+            <div className="card-floating p-6 h-full">
+              <h3 className="text-4xl font-bold text-gradient mb-2">Tecnología</h3>
+              <p className="text-muted-foreground">De Vanguardia Aplicada</p>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-in-up" delay={200} className="text-center">
+            <div className="card-floating p-6 h-full">
+              <h3 className="text-4xl font-bold text-gradient mb-2">Resultados</h3>
+              <p className="text-muted-foreground">Medibles y Sostenibles</p>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection animation="fade-in-up" delay={300} className="text-center">
+            <div className="card-floating p-6 h-full">
+              <h3 className="text-4xl font-bold text-gradient mb-2">Soporte</h3>
+              <p className="text-muted-foreground">Continuo y Cercano</p>
+            </div>
+          </AnimatedSection>
+        </div>
+
+        {/* Sustituimos los testimonios por "Lo que nuestros clientes experimentarán" o "Nuestros Pilares de Servicio" */}
+        <AnimatedSection animation="fade-in-up" delay={400} className="text-center max-w-4xl mx-auto">
+          <h3 className="text-3xl font-bold mb-8">Lo que Cada Cliente Experimenta con Loop & Logic:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> {/* Puedes poner 2 o 3 columnas si prefieres */}
+            <div className="card-floating p-6 text-left">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "Un enfoque verdaderamente profesional y soluciones digitales innovadoras que están diseñadas para superar tus expectativas y transformar tu negocio."
+              </p>
+              <p className="font-semibold text-foreground">- Enfoque y Visión</p>
+            </div>
+            <div className="card-floating p-6 text-left">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "Un equipo de desarrollo dedicado que entregará soluciones personalizadas y sistemas optimizados para revolucionar tus procesos internos."
+              </p>
+              <p className="font-semibold text-foreground">- Eficiencia y Personalización</p>
+            </div>
+            {/* Puedes añadir una tercera si usas grid-cols-3 */}
+            <div className="card-floating p-6 text-left md:col-span-2 lg:col-span-1 mx-auto w-full"> {/* Asegura que esta ocupe el espacio si es grid-cols-3 */}
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                "Tecnología de vanguardia que impulsará tu conversión y un servicio excepcional, siempre disponible para asegurar tu éxito continuo."
+              </p>
+              <p className="font-semibold text-foreground">- Innovación y Soporte</p>
+            </div>
           </div>
         </AnimatedSection>
-
-        {/* Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <AnimatedSection
-              key={testimonial.name}
-              animation="scale-in"
-              delay={index * 150}
-            >
-              <div className="card-floating text-center relative">
-                <Quote className="h-8 w-8 text-primary mx-auto mb-6 opacity-50" />
-                
-                <div className="flex justify-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 text-accent fill-current" />
-                  ))}
-                </div>
-
-                <p className="text-muted-foreground mb-8 italic leading-relaxed">
-                  "{testimonial.text}"
-                </p>
-
-                <div className="flex items-center justify-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover mr-4"
-                  />
-                  <div className="text-left">
-                    <div className="font-semibold text-foreground">
-                      {testimonial.name}
-                    </div>
-                    <div className="text-sm text-muted-foreground">
-                      {testimonial.company}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Decorative gradient */}
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-1 bg-gradient-primary rounded-full"></div>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
       </div>
-    </section>
+    </section>  
   );
 };

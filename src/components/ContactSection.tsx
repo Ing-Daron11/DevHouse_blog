@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Send, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
 import { toast } from '@/hooks/use-toast';
+import { FaInstagram } from 'react-icons/fa';
 
 export const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -37,7 +38,9 @@ export const ContactSection = () => {
 
   return (
     <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary via-background to-secondary"></div>
+      
+      <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_center,hsl(205_100%_55%/0.07),transparent_70%)]"></div>
+      <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_30%_70%,hsl(158_100%_45%/0.05),transparent_70%)]"></div>      
       
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSection animation="fade-in-up" className="text-center mb-16">
@@ -182,49 +185,62 @@ export const ContactSection = () => {
                     </div>
                     <div>
                       <div className="font-semibold text-foreground">Email</div>
-                      <div className="text-muted-foreground">hola@looplogic.dev</div>
+                      <div className="text-muted-foreground hover:text-primary">looplogicdevhouse@gmail.com</div>
                     </div>
                   </div>
                   
                   <div className="flex items-center">
-                    <div className="p-3 bg-gradient-primary rounded-xl mr-4">
-                      <Phone className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground">Teléfono</div>
-                      <div className="text-muted-foreground">+1 (555) 123-4567</div>
-                    </div>
+                    <a
+                      href="https://wa.me/573025922818"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center no-underline">
+                      <div className="p-3 bg-gradient-primary rounded-xl mr-4">
+                        <Phone className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground">Teléfono</div>
+                        <div className="text-muted-foreground hover:text-primary">+57 302 5922818</div>
+                      </div>
+                    </a>
                   </div>
                   
                   <div className="flex items-center">
-                    <div className="p-3 bg-gradient-primary rounded-xl mr-4">
-                      <MapPin className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground">Ubicación</div>
-                      <div className="text-muted-foreground">Ciudad de México, MX</div>
-                    </div>
+                    <a
+                      href="https://www.instagram.com/looplogicdevhouse?utm_source=qr&igsh=NXZod2lhMzFhYXdq"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center no-underline hover:text-primary">
+
+                      <div className="p-3 bg-gradient-primary rounded-xl mr-4">
+                        <FaInstagram className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-foreground">Instagram</div>
+                        <div className="text-muted-foreground hover:text-primary">looplogicdevhouse</div>
+                      </div>
+                    </a>
                   </div>
                 </div>
               </div>
 
-              <div className="card-premium bg-gradient-primary text-white">
+              <div className="card-premium bg-gradient-card border">
                 <h4 className="text-xl font-bold mb-4">¿Por qué elegirnos?</h4>
                 <ul className="space-y-3">
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-accent" />
                     <span>Consultoría gratuita</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-accent" />
                     <span>Respuesta en 24 horas</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-accent" />
                     <span>Soporte técnico continuo</span>
                   </li>
                   <li className="flex items-center">
-                    <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0" />
+                    <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-accent" />
                     <span>Garantía de satisfacción</span>
                   </li>
                 </ul>
