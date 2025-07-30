@@ -47,7 +47,6 @@ export const HeroSection = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <button className="btn-primary group">
               Cotiza ahora
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </button>
             <button className="btn-outline">
               Ver portafolio

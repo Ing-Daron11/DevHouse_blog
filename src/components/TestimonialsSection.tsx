@@ -1,4 +1,4 @@
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, TrendingUp, Zap, Rocket, LifeBuoy } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
 import { useCounterAnimation } from '@/hooks/useScrollAnimation';
 
@@ -54,59 +54,88 @@ export const TestimonialsSection = () => {
           </p>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16"> {/* Ajustado a 4 columnas */}
-          {/* Reemplazamos las estadísticas falsas por pilares de tu servicio */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           <AnimatedSection animation="fade-in-up" delay={0} className="text-center">
-            <div className="card-floating p-6 h-full">
-              <h3 className="text-4xl font-bold text-gradient mb-2">100%</h3> {/* Esto es una promesa, no una estadística */}
-              <p className="text-muted-foreground">Enfoque en tu Crecimiento</p>
-            </div>
+              <div className="card-floating p-6 h-full group"> {/* Añade 'group' para efectos hover */}
+                  <div className="flex justify-center mb-4">
+                      {/* Icono de crecimiento/flecha ascendente */}
+                      <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" /> 
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2">Crecimiento Digital</h3>
+                  <p className="text-muted-foreground">Tu éxito es nuestra prioridad absoluta, garantizamos un enfoque del 100%.</p>
+              </div>
           </AnimatedSection>
+
           <AnimatedSection animation="fade-in-up" delay={100} className="text-center">
-            <div className="card-floating p-6 h-full">
-              <h3 className="text-4xl font-bold text-gradient mb-2">Tecnología</h3>
-              <p className="text-muted-foreground">De Vanguardia Aplicada</p>
+            <div className="card-floating p-6 h-full group card-floating-accent-glow">
+                <div className="flex justify-center mb-4">
+                    {/* Icono de tecnología/engranaje/chip */}
+                    <Zap className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground mb-2">Tecnología de Vanguardia</h3>
+                <p className="text-muted-foreground">Aplicamos las últimas innovaciones para soluciones robustas y escalables.</p>
             </div>
           </AnimatedSection>
+
           <AnimatedSection animation="fade-in-up" delay={200} className="text-center">
-            <div className="card-floating p-6 h-full">
-              <h3 className="text-4xl font-bold text-gradient mb-2">Resultados</h3>
-              <p className="text-muted-foreground">Medibles y Sostenibles</p>
-            </div>
+              <div className="card-floating p-6 h-full group">
+                  <div className="flex justify-center mb-4">
+                      {/* Icono de resultados/gráfico/medalla */}
+                      <TrendingUp className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2">Resultados Medibles</h3>
+                  <p className="text-muted-foreground">Estrategias basadas en datos para un impacto real y sostenible.</p>
+              </div>
           </AnimatedSection>
+
           <AnimatedSection animation="fade-in-up" delay={300} className="text-center">
-            <div className="card-floating p-6 h-full">
-              <h3 className="text-4xl font-bold text-gradient mb-2">Soporte</h3>
-              <p className="text-muted-foreground">Continuo y Cercano</p>
-            </div>
+              <div className="card-floating p-6 h-full group card-floating-accent-glow">
+                  <div className="flex justify-center mb-4">
+                      {/* Icono de soporte/auriculares/escudo */}
+                      <LifeBuoy className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground mb-2">Soporte Continuo</h3>
+                  <p className="text-muted-foreground">Nuestro equipo siempre listo para asistirte en cada etapa.</p>
+              </div>
           </AnimatedSection>
         </div>
 
-        {/* Sustituimos los testimonios por "Lo que nuestros clientes experimentarán" o "Nuestros Pilares de Servicio" */}
         <AnimatedSection animation="fade-in-up" delay={400} className="text-center max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold mb-8">Lo que Cada Cliente Experimenta con Loop & Logic:</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8"> {/* Puedes poner 2 o 3 columnas si prefieres */}
-            <div className="card-floating p-6 text-left">
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                "Un enfoque verdaderamente profesional y soluciones digitales innovadoras que están diseñadas para superar tus expectativas y transformar tu negocio."
-              </p>
-              <p className="font-semibold text-foreground">- Enfoque y Visión</p>
+          <h3 className="text-3xl font-bold mb-8 text-gradient">La Experiencia Loop & Logic</h3> {/* Título más corto y con gradiente */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Ajuste a 3 columnas en LG */}
+            <div className="card-floating p-6 text-left relative overflow-hidden"> {/* Añadir relative y overflow-hidden */}
+                <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" /> {/* Icono de comillas grande y sutil */}
+                <p className="text-muted-foreground leading-relaxed mb-4 relative z-10"> {/* Z-index para el texto */}
+                  "Un enfoque verdaderamente profesional y soluciones digitales innovadoras que están diseñadas para superar tus expectativas y transformar tu negocio."
+                </p>
+                <p className="font-semibold text-foreground relative z-10">- Enfoque y Visión</p>
             </div>
-            <div className="card-floating p-6 text-left">
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                "Un equipo de desarrollo dedicado que entregará soluciones personalizadas y sistemas optimizados para revolucionar tus procesos internos."
-              </p>
-              <p className="font-semibold text-foreground">- Eficiencia y Personalización</p>
+
+            <div className="card-floating p-6 text-left relative overflow-hidden card-floating-accent-glow">
+                <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
+                <p className="text-muted-foreground leading-relaxed mb-4 relative z-10">
+                  "Un equipo de desarrollo dedicado que entregará soluciones personalizadas y sistemas optimizados para revolucionar tus procesos internos."
+                </p>
+                <p className="font-semibold text-foreground relative z-10">- Eficiencia y Personalización</p>
             </div>
-            {/* Puedes añadir una tercera si usas grid-cols-3 */}
-            <div className="card-floating p-6 text-left md:col-span-2 lg:col-span-1 mx-auto w-full"> {/* Asegura que esta ocupe el espacio si es grid-cols-3 */}
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                "Tecnología de vanguardia que impulsará tu conversión y un servicio excepcional, siempre disponible para asegurar tu éxito continuo."
-              </p>
-              <p className="font-semibold text-foreground">- Innovación y Soporte</p>
+            
+            <div className="card-floating p-6 text-left relative overflow-hidden md:col-span-2 lg:col-span-1 mx-auto w-full">
+                <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
+                <p className="text-muted-foreground leading-relaxed mb-4 relative z-10">
+                  "Tecnología de vanguardia que impulsará tu conversión y un servicio excepcional, siempre disponible para asegurar tu éxito continuo."
+                </p>
+                <p className="font-semibold text-foreground relative z-10">- Innovación y Soporte</p>
             </div>
           </div>
         </AnimatedSection>
+
+        <AnimatedSection animation="fade-in-up" delay={500} className="text-center mt-16">
+          <h3 className="text-3xl font-bold mb-6 text-foreground">¿Listo para impulsar tu negocio?</h3>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Descubre cómo nuestras soluciones personalizadas pueden transformar tu presencia digital.
+          </p>
+          <button className="btn-primary">Agenda una Consultoría Gratuita</button>
+      </AnimatedSection>
       </div>
     </section>  
   );
