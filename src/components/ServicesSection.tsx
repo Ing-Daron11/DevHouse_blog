@@ -1,6 +1,7 @@
   import { Globe, Brain, Database, TrendingUp, MessageCircle, Zap, Code, ShieldCheck, Palette, Lightbulb, BellRing, ArrowRight } from 'lucide-react';
   import { AnimatedSection } from './AnimatedSection';
-  import { title } from 'process';
+  import ServiceModal from './ServiceModal';
+  import { useState } from 'react';
 
   const services = [
     {
@@ -71,6 +72,21 @@
   ];
 
   export const ServicesSection = () => {
+    //--- estado para manejar el estado del modal y el servicio ---//
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectService, setSelectService] = useState(false);
+
+    const abrirModal = (service) => {
+      setSelectService(service);
+      setIsModalOpen(true)
+    }
+
+    const cerrarModal = () => {
+       setIsModalOpen(false);
+      setSelectService(null);
+    }
+
+
     return (
       <section className="py-24 relative overflow-hidden">
         {/* Background gradient*/}
@@ -94,34 +110,43 @@
                 delay={index * 100}
                 className="h-full"
               >
-                <div className={`card-floating h-full group cursor-pointer ${service.glowColor === 'accent' ? 'card-floating-accent-glow' : ''}`}>
+                <div 
+                  className={`card-floating h-full group cursor-pointer ${service.glowColor === 'accent' ? 'card-floating-accent-glow' : ''}`}
+                  onClick={() => abrirModal(service)}
+                >
                   <div className="flex items-center mb-6">
                     <div className={`icon-wrapper ${service.glowColor === 'accent' ? 'bg-accent/10' : ''}`}>
                       <service.icon className={`h-6 w-6 ${service.glowColor === 'accent' ? 'text-accent' : 'text-white'}`} />
                     </div>
+                
                     <h3 className="text-xl font-semibold text-foreground">
                       {service.title}
                     </h3>
                   </div>
+                
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     {service.description}
                   </p>
 
-                  <a 
-                    href={service.link} 
+                  <div 
                     className="text-primary hover:text-primary-foreground transition-colors duration-300 flex items-center group-hover:translate-x-1"
                   >
                     Más Información 
                     <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </a>
+                  </div>
                   
-                  {/* Hover glow effect */}
                   <div className="hover-glow-overlay"></div>
                 </div>
               </AnimatedSection>
             ))}
           </div>
         </div>
+
+        <ServiceModal
+          isOpen={isModalOpen}
+          service={selectService}
+          onClose={cerrarModal}
+        ></ServiceModal>
       </section>
     );
   };
