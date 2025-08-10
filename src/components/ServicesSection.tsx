@@ -2,6 +2,7 @@
   import { AnimatedSection } from './AnimatedSection';
   import ServiceModal from './ServiceModal';
   import { useState } from 'react';
+  import React from 'react';
 
   const services = [
     {
@@ -86,7 +87,6 @@
       setSelectService(null);
     }
 
-
     return (
       <section className="py-24 relative overflow-hidden">
         {/* Background gradient*/}
@@ -116,7 +116,7 @@
                 >
                   <div className="flex items-center mb-6">
                     <div className={`icon-wrapper ${service.glowColor === 'accent' ? 'bg-accent/10' : ''}`}>
-                      <service.icon className={`h-6 w-6 ${service.glowColor === 'accent' ? 'text-accent' : 'text-white'}`} />
+                      <service.icon className={`h-6 w-6 text-white ${service.glowColor === 'accent' ? '': ''}`} />
                     </div>
                 
                     <h3 className="text-xl font-semibold text-foreground">
