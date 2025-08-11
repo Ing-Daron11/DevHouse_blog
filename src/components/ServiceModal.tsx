@@ -72,10 +72,11 @@ const ServiceModal = ({ isOpen, service, onClose}) => {
                 
                 <div className="mt-12 text-center">
                     <a
-                        href="#contacto" // Enlaza a tu sección de contacto
-                        onClick={onClose} // Cierra la modal al hacer clic en el botón
+                        href="https://wa.me/573025922818?text=Hola,%20me%20gustaría%20agendar%20una%20consultoría%20gratuita%20sobre%20mi%20proyecto."
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="btn-primary inline-flex items-center"
-                    >
+                    >                                        
                         Agenda una Consultoría Gratuita
                         <ArrowRight className="ml-2 h-5 w-5" />
                     </a>

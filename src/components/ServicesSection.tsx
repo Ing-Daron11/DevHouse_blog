@@ -1,8 +1,9 @@
   import { Globe, Brain, Database, TrendingUp, MessageCircle, Zap, Code, ShieldCheck, Palette, Lightbulb, BellRing, ArrowRight } from 'lucide-react';
   import { AnimatedSection } from './AnimatedSection';
   import ServiceModal from './ServiceModal';
-  import { useState } from 'react';
+  import { useState, useEffect } from 'react';
   import React from 'react';
+import { log } from 'node:console';
 
   const services = [
     {
@@ -86,7 +87,8 @@
        setIsModalOpen(false);
       setSelectService(null);
     }
-
+    
+    
     return (
       <section className="py-24 relative overflow-hidden">
         {/* Background gradient*/}
@@ -129,7 +131,7 @@
                   </p>
 
                   <div 
-                    className="text-primary hover:text-primary-foreground transition-colors duration-300 flex items-center group-hover:translate-x-1"
+                    className="hover:text-accent transition-colors duration-300 flex items-center group-hover:translate-x-1"
                   >
                     Más Información 
                     <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
