@@ -134,7 +134,17 @@ export const TestimonialsSection = () => {
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
               Descubre cómo nuestras soluciones personalizadas pueden transformar tu presencia digital.
           </p>
-          <button className="btn-primary">Agenda una Consultoría Gratuita</button>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <a 
+              href="https://wa.me/573025922818?text=Hola,%20me%20gustaría%20agendar%20una%20consultoría%20gratuita%20sobre%20mi%20proyecto."
+              target="_blank"
+              rel="noopener noreferrer"
+              className='btn-primary'
+            >
+              Agenda una Consultoría Gratuita
+            </a>
+          </div>
       </AnimatedSection>
       </div>
     </section>  

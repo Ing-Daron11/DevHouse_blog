@@ -57,11 +57,11 @@ export const ContactSection = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_center,hsl(205_100%_55%/0.07),transparent_70%)]"></div>
-      <div className="absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_30%_70%,hsl(158_100%_45%/0.05),transparent_70%)]"></div>
+    <section className="py-24 relative overflow-hidden mt-0 px-0">
+      <div className="mt-0 px-0 absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_center,hsl(205_100%_55%/0.07),transparent_70%)]"></div>
+      <div className="mt-0 px-0 absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_30%_70%,hsl(158_100%_45%/0.05),transparent_70%)]"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10 mt-0 py-0">
         <AnimatedSection animation="fade-in-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="text-gradient">¿Listo para empezar?</span>
