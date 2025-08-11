@@ -2,8 +2,6 @@
   import { AnimatedSection } from './AnimatedSection';
   import ServiceModal from './ServiceModal';
   import { useState, useEffect } from 'react';
-  import React from 'react';
-import { log } from 'node:console';
 
   const services = [
     {
@@ -84,10 +82,9 @@ import { log } from 'node:console';
     }
 
     const cerrarModal = () => {
-       setIsModalOpen(false);
+      setIsModalOpen(false);
       setSelectService(null);
     }
-    
     
     return (
       <section className="py-24 relative overflow-hidden">

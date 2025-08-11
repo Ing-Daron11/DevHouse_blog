@@ -143,34 +143,30 @@
   }
 
   .card-floating {
-    @apply card-premium transform hover:-translate-y-2; /* Mantiene la elevación */
-    position: relative; /* Necesario para que los pseudo-elementos o overlays se posicionen */
-    overflow: hidden; /* Asegura que los brillos no se salgan de los bordes */
-    transition: transform .3s ease-in-out, border-color .3s ease-in-out, box-shadow .3s ease-in-out; /* Transición general para la tarjeta y su elevación */
-
-    /* Añadimos un sutil efecto de borde inicial o sombra para que el hover lo mejore */
-    border: 1px solid hsl(var(--border) / 0.3); /* Un borde base más sutil */
-    box-shadow: 0 0 5px hsl(var(--card) / 0.3); /* Una sombra muy sutil por defecto */
+    @apply card-premium transform hover:scale-[1.01]; /* Usamos scale para un efecto de elevación más suave */
+    position: relative;
+    overflow: hidden;
+    transition: transform .3s ease-in-out, border-color .3s ease-in-out, box-shadow .3s ease-in-out;
+    border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 0 0 5px hsl(var(--card) / 0.3);
   }
 
   .card-floating .hover-glow-overlay {
     @apply absolute inset-0 rounded-2xl pointer-events-none;
-    /* Colores del brillo más intensos y opacidad inicial más alta */
     background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-                                hsl(var(--primary-glow) / 0.08) 22%, /* Aumentamos opacidad a 0.3 */
-                                transparent 70%); 
-    opacity: 0; /* Empieza invisible */
-    transition: opacity .4s ease-in-out, transform 0.3s ease-in-out, filter 0.4s ease-in-out; /* Añadimos filter a la transición */
-    transform: scale(0.9); /* Empieza ligeramente más pequeño */
-    filter: blur(20px); /* Más desenfoque para un brillo más suave y amplio (de 8px a 15px) */
-    box-shadow: 0 0px 50px hsl(var(--primary-glow) / 0.3); /* Sombra que "brilla" más fuerte (de 20px a 40px, opacidad de 0.5 a 0.8) */
-    z-index: 1; /* Asegura que el brillo esté por encima de la tarjeta pero debajo del contenido */
+                                 hsl(var(--primary-glow) / 0.08) 22%,
+                                 transparent 70%); 
+    opacity: 0;
+    transition: opacity .4s ease-in-out, transform 0.3s ease-in-out, filter 0.4s ease-in-out;
+    transform: scale(0.9);
+    filter: blur(20px);
+    box-shadow: 0 0px 50px hsl(var(--primary-glow) / 0.3);
+    z-index: 1;
   }
 
   .card-floating:hover {
-    border-color: hsl(var(--primary-glow) / 0.5); /* El borde se vuelve más brillante */
-    box-shadow: var(--shadow-glow); /* Aplica la sombra de brillo externa a la tarjeta */
-    transform: translateY(-8px); /* Eleva un poco más la tarjeta */
+    border-color: hsl(var(--primary-glow) / 0.5);
+    box-shadow: var(--shadow-glow);
   }
 
   .card-floating::after {
@@ -180,13 +176,13 @@
     opacity: 0;
     filter: blur(5px); /* Suaviza el borde de brillo */
     transform: scale(1.02); /* Ligeramente más grande que la tarjeta */
-    transition: opacity 0.4s ease-out;
+    transition: opacity 0.4s ease-in-out;
     z-index: -1; /* Detrás del contenido de la tarjeta */
   }
 
   .card-floating:hover .hover-glow-overlay {
     filter: blur(10px);
-    opacity: 1; /* Al hacer hover, la opacidad total de este overlay */
+    opacity: 1;
     transform: scale(1);
   }
 
