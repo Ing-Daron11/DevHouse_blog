@@ -8,55 +8,38 @@
 
 @layer base {
   :root {
-    /* Main theme - Dark professional */
+  /* Main theme - Dark professional (Default) */
     --background: 240 100% 5%;
-    --foreground: 0 0% 100%; /* rgb(255, 255, 255) */
-
+    --foreground: 0 0% 100%;
     --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
-
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
-  
-    /* Electric blue primary */
-    --primary: 270 100% 25.5%; /* rgb(75, 0, 130) - Tu púrpura más claro */
+    --primary: 270 100% 25.5%;
     --primary-foreground: 0 0% 98%;
     --primary-glow: 270 100% 40%;
-
-    /* Emerald accent */
-    --accent: 180 100% 50%; /* CIan brillante para acentos */
-    --accent-foreground: 0 0% 6%; /* Texto oscuro sobre accent si es muy brillante */
-    --accent-glow: 180 100% 45%; /* Brillo del accent más intenso */
-
-    --secondary: 270 100% 25.5%; /* rgb(75, 0, 130) */
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 6%;
+    --accent-glow: 180 100% 45%;
+    --secondary: 270 100% 25.5%;
     --secondary-foreground: 0 0% 98%;
-
     --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 78.4%; /* Texto gris claro para párrafos */
-
-    --destructive: 0 84% 60%; /* Rojo para errores, etc. (mantener) */
+    --muted-foreground: 0 0% 78.4%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 260 100% 25%; /* Un borde que combine con el fondo oscuro, quizás un poco más claro que secondary */
-    --input: 260 100% 20%; /* Un input oscuro que combine */
-    --ring: 270 100% 35%; /* El color del 'ring' de enfoque, que sea visible */
-
+    --border: 260 100% 25%;
+    --input: 260 100% 20%;
+    --ring: 270 100% 35%;
     --radius: 0.75rem;
-
-    /* Premium gradients */
-    --gradient-primary: linear-gradient(to right, rgb(75, 0, 130), rgb(0, 255, 255)); /* De púrpura a cian para botones/texto */
+    --gradient-primary: linear-gradient(to right, rgb(75, 0, 130), rgb(0, 255, 255));
+    --gradient-card: linear-gradient(to bottom, hsl(270 100% 20%), hsl(240 100% 8%));
     --gradient-dark: linear-gradient(to bottom, rgb(30, 0, 90), rgb(75, 0, 130)); /* Tu fondo principal de la primera sección */
-    --gradient-card: linear-gradient(to bottom, hsl(270 100% 20%), hsl(240 100% 8%)); /* Gradiente más sutil para tarjetas (de púrpura oscuro a azul muy oscuro) */    
-
-    /* Premium shadows */
     --shadow-premium: 0 25px 50px -12px hsl(0 0% 0% / 0.5); 
-    --shadow-glow: 0 0 60px hsl(270 100% 55% / 0.25); /* Sombra de brillo más potente (de 50px a 60px, y opacidad a 0.5) */
-    --shadow-accent-glow: 0 0 60px hsl(180 100% 80% / 0.25); /* Sombra de brillo de acento más potente */
-
-    /* Animation timings */
+    --shadow-glow: 0 0 60px hsl(270 100% 55% / 0.25);
+    --shadow-accent-glow: 0 0 60px hsl(180 100% 80% / 0.25);
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
+    
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -72,6 +55,36 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /*
+   * ----------------------------------------
+   * Tema Claro (claro)
+   * ----------------------------------------
+   */
+  .claro {
+    --background: 0 0% 100%;
+    --foreground: 240 5.3% 26.1%;
+    --card: 0 0% 98%;
+    --card-foreground: 240 5.3% 26.1%;
+    --popover: 0 0% 98%;
+    --popover-foreground: 240 5.3% 26.1%;
+    --primary: 220 13% 91%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 240 5.9% 10%;
+    --gradient-primary: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
+    --gradient-card: linear-gradient(to bottom, hsl(var(--card)), hsl(var(--card)));
+    --shadow-glow: 0 0 60px hsl(var(--primary) / 0.25);
   }
 
   .dark {
