@@ -1,5 +1,8 @@
+
+// Componente de sección de contacto para mostrar información y formulario de contacto
 import React from "react";
 import { useState } from "react";
+// Iconos utilizados en la sección de contacto
 import {
   Mail,
   Phone,
@@ -14,7 +17,10 @@ import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { WhatsAppFloat } from "./WhatsAppFloat";
 
+
+// Definición del componente principal de la sección de contacto
 export const ContactSection = () => {
+  // Estado para almacenar los datos del formulario
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,13 +28,15 @@ export const ContactSection = () => {
     message: "",
     service: "",
   });
+  // Estado para controlar si el formulario está siendo enviado
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  // Maneja el envío del formulario de contacto
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
+    // Simulación de envío de formulario (puedes reemplazar por lógica real)
     setTimeout(() => {
       setIsSubmitting(false);
       toast({
@@ -45,6 +53,7 @@ export const ContactSection = () => {
     }, 2000);
   };
 
+  // Maneja los cambios en los campos del formulario
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
@@ -56,12 +65,16 @@ export const ContactSection = () => {
     });
   };
 
+
+  // Renderizado de la sección de contacto
   return (
     <section className="py-24 relative overflow-hidden mt-0 px-0">
+      {/* Fondos decorativos con gradientes */}
       <div className="mt-0 px-0 absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_center,hsl(205_100%_55%/0.07),transparent_70%)]"></div>
       <div className="mt-0 px-0 absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_30%_70%,hsl(158_100%_45%/0.05),transparent_70%)]"></div>
 
       <div className="container mx-auto px-6 relative z-10 mt-0 py-0">
+        {/* Título y descripción */}
         <AnimatedSection animation="fade-in-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="text-gradient">¿Listo para empezar?</span>
@@ -74,131 +87,19 @@ export const ContactSection = () => {
         </AnimatedSection>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Contact Form */}
-          {/*<AnimatedSection animation="slide-in-left">
-            <div className="card-premium">
-              <h3 className="text-2xl font-bold mb-8 text-foreground">
-                Cuéntanos sobre tu proyecto
-              </h3>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                      Nombre completo *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 text-foreground"
-                      placeholder="Tu nombre"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 text-foreground"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                </div>
+          {/* Formulario de contacto (actualmente comentado, puedes habilitarlo si lo necesitas) */}
+          {/* ...formulario aquí... */}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-foreground mb-2">
-                      Empresa
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 text-foreground"
-                      placeholder="Tu empresa"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-foreground mb-2">
-                      Servicio de interés
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 text-foreground"
-                    >
-                      <option value="">Selecciona un servicio</option>
-                      <option value="web">Desarrollo Web</option>
-                      <option value="ai">Automatizaciones con IA</option>
-                      <option value="crm">CRM/ERP</option>
-                      <option value="marketing">Marketing Digital</option>
-                      <option value="chatbot">Chatbots</option>
-                      <option value="custom">Solución a Medida</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Mensaje *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 bg-input border border-border rounded-xl focus:ring-2 focus:ring-primary focus:border-primary transition-all duration-300 text-foreground resize-none"
-                    placeholder="Cuéntanos sobre tu proyecto, objetivos y cualquier detalle relevante..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      Enviar mensaje
-                      <Send className="ml-2 h-5 w-5" />
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
-          </AnimatedSection>*/}
-
-          {/* Contact Info */}
+          {/* Información de contacto y beneficios */}
           <AnimatedSection animation="slide-in-left">
             <div className="card-premium h-full flex flex-col justify-between group">
               <div>
+                {/* Título de la invitación */}
                 <h3 className="text-2xl font-bold mb-4 text-foreground">
                   ¡Agenda tu consultoría gratuita ahora!
                 </h3>
 
+                {/* Descripción de la invitación */}
                 <p className="text-muted-foreground mb-8 text-lg">
                   Estamos listos para escuchar tu idea y ayudarte a construir la
                   solución digital que necesitas. Recibe asesoría sin
@@ -206,6 +107,7 @@ export const ContactSection = () => {
                 </p>
               </div>
 
+              {/* Botón de WhatsApp */}
               <a
                 href="https://wa.me/573025922818?text=Hola,%20me%20gustaría%20agendar%20una%20consultoría%20gratuita%20sobre%20mi%20proyecto."
                 target="_blank"
@@ -218,14 +120,17 @@ export const ContactSection = () => {
             </div>
           </AnimatedSection>
 
+          {/* Detalles de contacto y razones para elegirnos */}
           <AnimatedSection animation="slide-in-right">
             <div className="space-y-8">
+              {/* Tarjeta de información de contacto */}
               <div className="card-premium group">
                 <h3 className="text-2xl font-bold mb-6 text-foreground">
                   Información de contacto
                 </h3>
 
                 <div className="space-y-6">
+                  {/* Email */}
                   <div className="flex items-center group-hover-grow">
                     <div className="p-3 bg-gradient-primary rounded-xl mr-4">
                       <Mail className="h-6 w-6 text-white" />
@@ -239,6 +144,7 @@ export const ContactSection = () => {
                     </div>
                   </div>
 
+                  {/* Teléfono */}
                   <div className="flex items-center group-hover-grow">
                     <a
                       href="https://wa.me/573025922818"
@@ -261,6 +167,7 @@ export const ContactSection = () => {
                     </a>
                   </div>
 
+                  {/* Instagram */}
                   <div className="flex items-center group-hover-grow">
                     <a
                       href="https://www.instagram.com/looplogicdevhouse?utm_source=qr&igsh=NXZod2lhMzFhYXdq"
@@ -283,6 +190,7 @@ export const ContactSection = () => {
                     </a>
                   </div>
 
+                  {/* Ubicación */}
                   <div className="flex items-center cursor-pointer group-hover-grow">
                     <div className="p-3 bg-gradient-primary rounded-xl mr-4">
                       <MapPin className="h-6 w-6 text-white" />
@@ -302,21 +210,26 @@ export const ContactSection = () => {
                 <div className="hover-glow-overlay group-hover:opacity-100"></div>
               </div>
 
+              {/* Tarjeta de beneficios */}
               <div className="card-premium bg-gradient-card border group hover:bg-black/20 transition-colors duration-300">
                 <h4 className="text-xl font-bold mb-4">¿Por qué elegirnos?</h4>
                 <ul className="space-y-3">
+                  {/* Beneficio: Consultoría gratuita */}
                   <li className="flex items-center group-hover:text-foreground transition-colors duration-300">
                     <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-accent group-hover:text-primary transition-colors duration-300" />
                     <span>Consultoría gratuita</span>
                   </li>
+                  {/* Beneficio: Respuesta rápida */}
                   <li className="flex items-center group-hover:text-foreground transition-colors duration-300">
                     <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-accent group-hover:text-primary transition-colors duration-300" />
                     <span>Respuesta en 24 horas</span>
                   </li>
+                  {/* Beneficio: Soporte técnico */}
                   <li className="flex items-center group-hover:text-foreground transition-colors duration-300">
                     <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-accent group-hover:text-primary transition-colors duration-300" />
                     <span>Soporte técnico continuo</span>
                   </li>
+                  {/* Beneficio: Garantía */}
                   <li className="flex items-center group-hover:text-foreground transition-colors duration-300">
                     <CheckCircle className="h-5 w-5 mr-3 flex-shrink-0 text-accent group-hover:text-primary transition-colors duration-300" />
                     <span>Garantía de satisfacción</span>

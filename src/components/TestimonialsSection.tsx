@@ -1,7 +1,9 @@
+// Sección de testimonios y garantías de la empresa
 import { Star, Quote, TrendingUp, Zap, Rocket, LifeBuoy } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
 import { useCounterAnimation } from '@/hooks/useScrollAnimation';
 
+// (Opcional) Testimonios de clientes (no se usan en el render actual)
 const testimonials = [
   {
     name: 'María González',
@@ -26,6 +28,7 @@ const testimonials = [
   }
 ];
 
+// Componente para mostrar un contador animado de estadísticas (no usado en el render actual)
 const StatsCounter = ({ value, label }: { value: number; label: string }) => {
   const { ref, count } = useCounterAnimation(value);
   
@@ -39,12 +42,15 @@ const StatsCounter = ({ value, label }: { value: number; label: string }) => {
   );
 };
 
+// Componente principal de la sección de testimonios y garantías
 export const TestimonialsSection = () => {
   return (
     <section className="py-24 relative overflow-hidden">
+      {/* Fondo decorativo con gradiente */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/50 to-background"></div>
       
       <div className="container mx-auto px-6 relative z-10">
+        {/* Título y descripción */}
         <AnimatedSection animation="fade-in-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold mb-6">
             <span className="text-gradient">Nuestro Compromiso: Tu Éxito Digital</span>
@@ -54,63 +60,72 @@ export const TestimonialsSection = () => {
           </p>
         </AnimatedSection>
 
+        {/* Cuadros de garantías/valores de la empresa */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          {/* Garantía: Crecimiento Digital */}
           <AnimatedSection animation="fade-in-up" delay={0} className="text-center">
-              <div className="card-floating p-6 h-full group"> {/* Añade 'group' para efectos hover */}
-                  <div className="flex justify-center mb-4">
-                      {/* Icono de crecimiento/flecha ascendente */}
-                      <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" /> 
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Crecimiento Digital</h3>
-                  <p className="text-muted-foreground">Tu éxito es nuestra prioridad absoluta, garantizamos un enfoque del 100%.</p>
+            <div className="card-floating p-6 h-full group">
+              <div className="flex justify-center mb-4">
+                {/* Icono de crecimiento/flecha ascendente */}
+                <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" /> 
               </div>
-          </AnimatedSection>
-
-          <AnimatedSection animation="fade-in-up" delay={100} className="text-center">
-            <div className="card-floating p-6 h-full group card-floating-accent-glow">
-                <div className="flex justify-center mb-4">
-                    {/* Icono de tecnología/engranaje/chip */}
-                    <Zap className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Tecnología de Vanguardia</h3>
-                <p className="text-muted-foreground">Aplicamos las últimas innovaciones para soluciones robustas y escalables.</p>
+              <h3 className="text-xl font-bold text-foreground mb-2">Crecimiento Digital</h3>
+              <p className="text-muted-foreground">Tu éxito es nuestra prioridad absoluta, garantizamos un enfoque del 100%.</p>
             </div>
           </AnimatedSection>
 
-          <AnimatedSection animation="fade-in-up" delay={200} className="text-center">
-              <div className="card-floating p-6 h-full group">
-                  <div className="flex justify-center mb-4">
-                      {/* Icono de resultados/gráfico/medalla */}
-                      <TrendingUp className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Resultados Medibles</h3>
-                  <p className="text-muted-foreground">Estrategias basadas en datos para un impacto real y sostenible.</p>
-              </div>
+          {/* Garantía: Tecnología de Vanguardia */}
+          <AnimatedSection animation="fade-in-up" delay={100} className="text-center">
+          <div className="card-floating p-6 h-full group card-floating-accent-glow">
+            <div className="flex justify-center mb-4">
+              {/* Icono de tecnología/engranaje/chip */}
+              <Zap className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
+            </div>
+            <h3 className="text-xl font-bold text-foreground mb-2">Tecnología de Vanguardia</h3>
+            <p className="text-muted-foreground">Aplicamos las últimas innovaciones para soluciones robustas y escalables.</p>
+          </div>
           </AnimatedSection>
 
-          <AnimatedSection animation="fade-in-up" delay={300} className="text-center">
-              <div className="card-floating p-6 h-full group card-floating-accent-glow">
-                  <div className="flex justify-center mb-4">
-                      {/* Icono de soporte/auriculares/escudo */}
-                      <LifeBuoy className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">Soporte Continuo</h3>
-                  <p className="text-muted-foreground">Nuestro equipo siempre listo para asistirte en cada etapa.</p>
+          {/* Garantía: Resultados Medibles */}
+          <AnimatedSection animation="fade-in-up" delay={200} className="text-center">
+            <div className="card-floating p-6 h-full group">
+              <div className="flex justify-center mb-4">
+                {/* Icono de resultados/gráfico/medalla */}
+                <TrendingUp className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
               </div>
+              <h3 className="text-xl font-bold text-foreground mb-2">Resultados Medibles</h3>
+              <p className="text-muted-foreground">Estrategias basadas en datos para un impacto real y sostenible.</p>
+            </div>
+          </AnimatedSection>
+
+          {/* Garantía: Soporte Continuo */}
+          <AnimatedSection animation="fade-in-up" delay={300} className="text-center">
+            <div className="card-floating p-6 h-full group card-floating-accent-glow">
+              <div className="flex justify-center mb-4">
+                {/* Icono de soporte/auriculares/escudo */}
+                <LifeBuoy className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-2">Soporte Continuo</h3>
+              <p className="text-muted-foreground">Nuestro equipo siempre listo para asistirte en cada etapa.</p>
+            </div>
           </AnimatedSection>
         </div>
 
+
+        {/* Testimonios/experiencia de la empresa */}
         <AnimatedSection animation="fade-in-up" delay={400} className="text-center max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold mb-8 text-gradient">La Experiencia Loop & Logic</h3> {/* Título más corto y con gradiente */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> {/* Ajuste a 3 columnas en LG */}
-            <div className="card-floating p-6 text-left relative overflow-hidden"> {/* Añadir relative y overflow-hidden */}
-                <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" /> {/* Icono de comillas grande y sutil */}
-                <p className="text-muted-foreground leading-relaxed mb-4 relative z-10"> {/* Z-index para el texto */}
+          <h3 className="text-3xl font-bold mb-8 text-gradient">La Experiencia Loop & Logic</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Testimonio 1 */}
+            <div className="card-floating p-6 text-left relative overflow-hidden">
+                <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
+                <p className="text-muted-foreground leading-relaxed mb-4 relative z-10">
                   "Un enfoque verdaderamente profesional y soluciones digitales innovadoras que están diseñadas para superar tus expectativas y transformar tu negocio."
                 </p>
                 <p className="font-semibold text-foreground relative z-10">- Enfoque y Visión</p>
             </div>
 
+            {/* Testimonio 2 */}
             <div className="card-floating p-6 text-left relative overflow-hidden card-floating-accent-glow">
                 <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
                 <p className="text-muted-foreground leading-relaxed mb-4 relative z-10">
@@ -119,6 +134,7 @@ export const TestimonialsSection = () => {
                 <p className="font-semibold text-foreground relative z-10">- Eficiencia y Personalización</p>
             </div>
             
+            {/* Testimonio 3 */}
             <div className="card-floating p-6 text-left relative overflow-hidden md:col-span-2 lg:col-span-1 mx-auto w-full">
                 <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
                 <p className="text-muted-foreground leading-relaxed mb-4 relative z-10">
@@ -129,6 +145,7 @@ export const TestimonialsSection = () => {
           </div>
         </AnimatedSection>
 
+        {/* Llamado a la acción final */}
         <AnimatedSection animation="fade-in-up" delay={500} className="text-center mt-16">
           <h3 className="text-3xl font-bold mb-6 text-foreground">¿Listo para impulsar tu negocio?</h3>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">

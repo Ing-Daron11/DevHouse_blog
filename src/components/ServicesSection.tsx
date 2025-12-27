@@ -1,9 +1,11 @@
-  import { Globe, Brain, Database, TrendingUp, MessageCircle, Zap, Code, ShieldCheck, Palette, Lightbulb, BellRing, ArrowRight } from 'lucide-react';
-  import { AnimatedSection } from './AnimatedSection';
-  import ServiceModal from './ServiceModal';
-  import { useState, useEffect } from 'react';
+// Sección de servicios ofrecidos por la empresa
+import { Globe, Brain, Database, TrendingUp, MessageCircle, Zap, Code, ShieldCheck, Palette, Lightbulb, BellRing, ArrowRight } from 'lucide-react';
+import { AnimatedSection } from './AnimatedSection';
+import ServiceModal from './ServiceModal';
+import { useState, useEffect } from 'react';
 
-  const services = [
+// Lista de servicios con icono, título y descripción
+const services = [
     {
       icon: Globe,
       title: 'Diseño y Desarrollo Web',
@@ -71,81 +73,92 @@
     }
   ];
 
-  export const ServicesSection = () => {
-    //--- estado para manejar el estado del modal y el servicio ---//
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectService, setSelectService] = useState(false);
 
-    const abrirModal = (service) => {
-      setSelectService(service);
-      setIsModalOpen(true)
-    }
+// Componente principal de la sección de servicios
+export const ServicesSection = () => {
+  // Estado para controlar la apertura del modal de detalles de servicio
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Estado para almacenar el servicio seleccionado (null por defecto)
+  const [selectService, setSelectService] = useState(null);
 
-    const cerrarModal = () => {
-      setIsModalOpen(false);
-      setSelectService(null);
-    }
-    
-    return (
-      <section className="py-24 relative overflow-hidden">
-        {/* Background gradient*/}
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/50 to-background"></div>
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <AnimatedSection animation="fade-in-up" className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-gradient">Nuestros Servicios</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Ofrecemos soluciones tecnológicas completas para llevar tu negocio al siguiente nivel digital
-            </p>
-          </AnimatedSection>
+  // Función para abrir el modal y mostrar detalles del servicio
+  const abrirModal = (service) => {
+    setSelectService(service);
+    setIsModalOpen(true)
+  }
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <AnimatedSection
-                key={service.title}
-                animation="fade-in-up"
-                delay={index * 100}
-                className="h-full"
+  // Función para cerrar el modal
+  const cerrarModal = () => {
+    setIsModalOpen(false);
+    setSelectService(null);
+  }
+  
+  return (
+    <section className="py-24 relative overflow-hidden">
+      {/* Fondo decorativo con gradiente */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/50 to-background"></div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Título y descripción */}
+        <AnimatedSection animation="fade-in-up" className="text-center mb-16">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <span className="text-gradient">Nuestros Servicios</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Ofrecemos soluciones tecnológicas completas para llevar tu negocio al siguiente nivel digital
+          </p>
+        </AnimatedSection>
+
+        {/* Tarjetas de servicios */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <AnimatedSection
+              key={service.title}
+              animation="fade-in-up"
+              delay={index * 100}
+              className="h-full"
+            >
+              <div 
+                className={`card-floating h-full group cursor-pointer ${service.glowColor === 'accent' ? 'card-floating-accent-glow' : ''}`}
+                onClick={() => abrirModal(service)}
               >
-                <div 
-                  className={`card-floating h-full group cursor-pointer ${service.glowColor === 'accent' ? 'card-floating-accent-glow' : ''}`}
-                  onClick={() => abrirModal(service)}
-                >
-                  <div className="flex items-center mb-6">
-                    <div className={`icon-wrapper ${service.glowColor === 'accent' ? 'bg-accent/10' : ''}`}>
-                      <service.icon className={`h-6 w-6 text-white ${service.glowColor === 'accent' ? '': ''}`} />
-                    </div>
-                
-                    <h3 className="text-xl font-semibold text-foreground">
-                      {service.title}
-                    </h3>
+                <div className="flex items-center mb-6">
+                  {/* Icono del servicio */}
+                  <div className={`icon-wrapper ${service.glowColor === 'accent' ? 'bg-accent/10' : ''}`}>
+                    <service.icon className={`h-6 w-6 text-white ${service.glowColor === 'accent' ? '': ''}`} />
                   </div>
-                
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-
-                  <div 
-                    className="hover:text-accent transition-colors duration-300 flex items-center group-hover:translate-x-1"
-                  >
-                    Más Información 
-                    <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                  </div>
-                  
-                  <div className="hover-glow-overlay"></div>
+              
+                  <h3 className="text-3xl font-bold text-white mb-4 leading-tight">
+                    {service.title}
+                  </h3>
                 </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
+              
+                {/* Descripción del servicio */}
+                <p className="text-[#CCDEE4]/80 text-lg mb-6">
+                  {service.description}
+                </p>
 
-        <ServiceModal
-          isOpen={isModalOpen}
-          service={selectService}
-          onClose={cerrarModal}
-        ></ServiceModal>
-      </section>
-    );
-  };
+                {/* Botón para más información */}
+                <div 
+                  className="hover:text-accent transition-colors duration-300 flex items-center group-hover:translate-x-1"
+                >
+                  Más Información 
+                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+                
+                <div className="hover-glow-overlay"></div>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal de detalles del servicio */}
+      <ServiceModal
+        isOpen={isModalOpen}
+        service={selectService}
+        onClose={cerrarModal}
+      ></ServiceModal>
+    </section>
+  );
+};

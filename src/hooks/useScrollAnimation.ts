@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 
+// Hook para animar la aparición de un elemento al hacer scroll
+// Devuelve un ref y un booleano indicando si el elemento es visible en pantalla
 export const useScrollAnimation = (threshold = 0.1) => {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // IntersectionObserver detecta si el elemento entra en el viewport
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -18,6 +21,7 @@ export const useScrollAnimation = (threshold = 0.1) => {
       observer.observe(ref.current);
     }
 
+    // Limpieza del observer al desmontar
     return () => {
       if (ref.current) {
         observer.unobserve(ref.current);
@@ -28,12 +32,15 @@ export const useScrollAnimation = (threshold = 0.1) => {
   return { ref, isVisible };
 };
 
+// Hook para animar un contador numérico cuando el elemento es visible
+// Devuelve un ref y el valor actual del contador
 export const useCounterAnimation = (endValue: number, duration = 2000) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Observer para detectar visibilidad del elemento
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !isVisible) {
@@ -41,6 +48,7 @@ export const useCounterAnimation = (endValue: number, duration = 2000) => {
           let start = 0;
           const increment = endValue / (duration / 16);
           
+          // Animación del contador
           const timer = setInterval(() => {
             start += increment;
             if (start >= endValue) {
@@ -61,6 +69,7 @@ export const useCounterAnimation = (endValue: number, duration = 2000) => {
       observer.observe(ref.current);
     }
 
+    // Limpieza del observer al desmontar
     return () => {
       if (ref.current) {
         observer.unobserve(ref.current);
