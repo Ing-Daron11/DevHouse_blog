@@ -1,29 +1,18 @@
-import { HeroSection } from '@/components/HeroSection';
-import { ServicesSection } from '@/components/ServicesSection';
-import { TestimonialsSection } from '@/components/TestimonialsSection';
-import { ContactSection } from '@/components/ContactSection';
+import HeroSection from '@/components/HeroSection';
+import ServicesSection from '@/components/ServicesSection';
+import PartnersSection from '@/components/PartnersSection';
+import ContactSection from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
-import { WhatsAppFloat } from '@/components/WhatsAppFloat';
-import React, { useState } from 'react';
-
-// Página principal: Index
-// Muestra todas las secciones principales del sitio y permite cambiar el tema visual
-
-// Define los temas disponibles
+import React from 'react';
 
 const Index = () => {
-
   return (
-    // Aplica la clase del tema al contenedor principal
-    <div className="min-h-screen">
-
-      {/* Secciones principales de la web */}
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-green-500/30">
       <HeroSection />
       <ServicesSection />
-      <TestimonialsSection />
+      <PartnersSection />
       <ContactSection />
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

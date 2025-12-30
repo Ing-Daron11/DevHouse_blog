@@ -1,164 +1,74 @@
-// Sección de servicios ofrecidos por la empresa
-import { Globe, Brain, Database, TrendingUp, MessageCircle, Zap, Code, ShieldCheck, Palette, Lightbulb, BellRing, ArrowRight } from 'lucide-react';
-import { AnimatedSection } from './AnimatedSection';
-import ServiceModal from './ServiceModal';
-import { useState, useEffect } from 'react';
+import { Code, Cpu, Database, Globe, Layout, Shield } from 'lucide-react';
 
-// Lista de servicios con icono, título y descripción
 const services = [
-    {
-      icon: Globe,
-      title: 'Diseño y Desarrollo Web',
-      description: 'Creamos sitios web modernos y atractivos, 100% adaptables a cualquier dispositivo (responsive), optimizados para captar clientes y posicionamiento SEO.',
-      glowColor: "primary",
-      link: "#"
-    },
-    {
-      icon: Brain,
-      title: 'Automatizaciones con IA',
-      description: 'Integramos Inteligencia Artificial para optimizar procesos clave, mejorar la eficiencia operativa y potenciar el crecimiento de tu negocio.',
-      glowColor: "accent",
-      link: "#"
-    },
-    {
-      icon: Database,
-      title: 'CRMs y ERPs',
-      description: 'Implementamos sistemas CRMs y ERPs personalizados para centralizar tu información, optimizar la gestión y asegurar el crecimiento escalable de tu empresa.',
-      glowColor: "primary",
-      link: "#"
-    },
-    {
-      icon: TrendingUp,
-      title: 'Marketing Digital',
-      description: 'Desarrollamos estrategias digitales integrales que aumentan tu visibilidad online, atraen a tu público ideal y generan resultados medibles en ventas.',
-      glowColor: "accent",
-      link: "#"
-    },
-    {
-      icon: MessageCircle,
-      title: 'Chatbots y WhatsApp Business',
-      description: 'Automatizamos tu atención al cliente 24/7 con chatbots inteligentes y WhatsApp Business API, ofreciendo respuestas instantáneas y una experiencia superior.',
-      glowColor: "primary",
-      link: "#"
-    },
-    {
-      icon: Zap,
-      title: 'Soluciones a Medida',
-      description: 'Creamos tecnología específica para resolver los desafíos únicos de tu industria. Innovación con un soporte constante para asegurar tu éxito a largo plazo.',
-      glowColor: "accent",
-      link: "#"
-    },
-
-    //--- NUEVOS SERVICIOS --- //
-    {
-      icon: ShieldCheck,
-      title: 'Ciberseguridad y Protección de Datos',
-      description: 'Protegemos tu información y sistemas con soluciones robustas de ciberseguridad, garantizando la integridad y confidencialidad de tus activos digitales.',
-      glowColor: "accent",
-      link: "#"
-    },
-    {
-      icon: Palette, 
-      title: 'Identidad Visual y Branding Digital',
-      description: 'Construimos una marca digital coherente y atractiva, desde el diseño de logo hasta la guía de estilo, que resuene con tu audiencia.',
-      glowColor: "primary",
-      link: "#"
-    },
-    {
-      icon: BellRing,
-      title: 'Soporte Técnico Especializado',
-      description: 'Ofrecemos soporte técnico proactivo y reactivo para todas tus soluciones digitales, asegurando la continuidad operativa y minimizando interrupciones.',
-      glowColor: "accent",
-      link: "#"
-    }
-  ];
-
-
-// Componente principal de la sección de servicios
-export const ServicesSection = () => {
-  // Estado para controlar la apertura del modal de detalles de servicio
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  // Estado para almacenar el servicio seleccionado (null por defecto)
-  const [selectService, setSelectService] = useState(null);
-
-  // Función para abrir el modal y mostrar detalles del servicio
-  const abrirModal = (service) => {
-    setSelectService(service);
-    setIsModalOpen(true)
+  {
+    icon: <Globe className="w-8 h-8" />,
+    title: "Desarrollo Web",
+    description: "Sitios web modernos, rápidos y optimizados para SEO."
+  },
+  {
+    icon: <Cpu className="w-8 h-8" />,
+    title: "Automatizaciones IA",
+    description: "Implementación de inteligencia artificial para optimizar procesos."
+  },
+  {
+    icon: <Database className="w-8 h-8" />,
+    title: "CRM/ERP",
+    description: "Sistemas de gestión empresarial a medida y escalables."
+  },
+  {
+    icon: <Layout className="w-8 h-8" />,
+    title: "Marketing Digital",
+    description: "Estrategias para posicionar tu marca en el mundo digital."
+  },
+  {
+    icon: <Code className="w-8 h-8" />,
+    title: "Chatbots",
+    description: "Asistentes virtuales inteligentes para atención al cliente 24/7."
+  },
+  {
+    icon: <Shield className="w-8 h-8" />,
+    title: "Ciberseguridad",
+    description: "Protección de datos y auditorías de seguridad."
   }
+];
 
-  // Función para cerrar el modal
-  const cerrarModal = () => {
-    setIsModalOpen(false);
-    setSelectService(null);
-  }
-  
+const ServicesSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Fondo decorativo con gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/50 to-background"></div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Título y descripción */}
-        <AnimatedSection animation="fade-in-up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-gradient">Nuestros Servicios</span>
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ofrecemos soluciones tecnológicas completas para llevar tu negocio al siguiente nivel digital
+    <section className="py-24 bg-black text-white">
+      <div className="container mx-auto px-6">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Soluciones tecnológicas integrales diseñadas para escalar tu negocio.
           </p>
-        </AnimatedSection>
+        </div>
 
-        {/* Tarjetas de servicios */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Carrusel Horizontal */}
+        <div className="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory no-scrollbar px-4">
           {services.map((service, index) => (
-            <AnimatedSection
-              key={service.title}
-              animation="fade-in-up"
-              delay={index * 100}
-              className="h-full"
+            <div 
+              key={index} 
+              className="min-w-[300px] md:min-w-[350px] bg-gray-900/50 border border-gray-800 p-8 rounded-2xl snap-center hover:border-green-500/50 transition-colors group"
             >
-              <div 
-                className={`card-floating h-full group cursor-pointer ${service.glowColor === 'accent' ? 'card-floating-accent-glow' : ''}`}
-                onClick={() => abrirModal(service)}
-              >
-                <div className="flex items-center mb-6">
-                  {/* Icono del servicio */}
-                  <div className={`icon-wrapper ${service.glowColor === 'accent' ? 'bg-accent/10' : ''}`}>
-                    <service.icon className={`h-6 w-6 text-white ${service.glowColor === 'accent' ? '': ''}`} />
-                  </div>
-              
-                  <h3 className="text-3xl font-bold text-white mb-4 leading-tight">
-                    {service.title}
-                  </h3>
-                </div>
-              
-                {/* Descripción del servicio */}
-                <p className="text-[#CCDEE4]/80 text-lg mb-6">
-                  {service.description}
-                </p>
-
-                {/* Botón para más información */}
-                <div 
-                  className="hover:text-accent transition-colors duration-300 flex items-center group-hover:translate-x-1"
-                >
-                  Más Información 
-                  <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-                </div>
-                
-                <div className="hover-glow-overlay"></div>
+              <div className="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center text-green-500 mb-6 group-hover:bg-green-500/10 transition-colors">
+                {service.icon}
               </div>
-            </AnimatedSection>
+              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+              <p className="text-gray-400 leading-relaxed">
+                {service.description}
+              </p>
+              <div className="mt-6">
+                <button className="text-sm font-medium text-green-500 hover:text-green-400 flex items-center gap-1">
+                  Saber más <span className="text-lg">→</span>
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
-
-      {/* Modal de detalles del servicio */}
-      <ServiceModal
-        isOpen={isModalOpen}
-        service={selectService}
-        onClose={cerrarModal}
-      ></ServiceModal>
     </section>
   );
 };
+
+export default ServicesSection;
