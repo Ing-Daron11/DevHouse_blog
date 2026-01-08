@@ -27,39 +27,40 @@ const DnaAnimation = () => {
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black text-white overflow-hidden pt-20">
+    <header className="relative flex items-center justify-center bg-[#F8FAFC] text-[#22313A] overflow-hidden py-8 shadow-none border-b border-[#E6ECF1]" aria-label="Hero principal">
       {/* Fondo sutil */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-green-900/20 via-black to-black z-0"></div>
-      
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#F0F4F8_0%,_#F8FAFC_100%)] z-0 opacity-90"></div>
+
       <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6 text-center md:text-left">
-          <div className="inline-block px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-sm font-medium mb-4">
+        <div className="space-y-3 text-center md:text-left">
+          <div className="inline-block px-2 py-0.5 rounded-full border border-accent/20 bg-white text-accent text-xs font-medium mb-1 shadow-none">
             Loop & Logic DevHouse
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
-            Transformamos ideas en <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">experiencias digitales</span>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-1">
+            Transformamos ideas en <span className="text-accent font-extrabold">experiencias digitales</span>
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl max-w-lg mx-auto md:mx-0">
+          <p className="text-[#487070] text-sm sm:text-base md:text-lg max-w-lg mx-auto md:mx-0 font-medium mb-1">
             Tu partner tecnológico especializado en soluciones innovadoras. Desarrollo web, IA y automatización a medida.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
-            <button className="px-8 py-4 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2 group">
+          <div className="flex flex-col sm:flex-row gap-2 justify-center md:justify-start pt-1">
+            <button className="px-8 py-4 bg-white border border-accent text-accent hover:bg-accent hover:text-white rounded-xl font-semibold transition-all flex items-center justify-center gap-2 group focus:outline-none focus:ring-2 focus:ring-accent/40 shadow-sm" aria-label="Empezar Proyecto">
               Empezar Proyecto
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 border border-gray-700 hover:border-green-500/50 hover:bg-green-500/5 text-white rounded-lg font-semibold transition-all">
-              Ver Portafolio
+            <button className="px-8 py-4 bg-white border border-accent text-accent hover:bg-accent hover:text-white rounded-xl font-semibold transition-all flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-accent/20 shadow-sm" aria-label="Ver Portafolio">
+              <span>Ver Portafolio</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
 
-        <div className="relative h-[400px] flex items-center justify-center">
+        <div className="relative h-[220px] sm:h-[300px] md:h-[400px] flex items-center justify-center">
           {/* Efecto de brillo detrás del ADN */}
-          <div className="absolute inset-0 bg-green-500/20 blur-[100px] rounded-full transform scale-75"></div>
+          <div className="absolute inset-0 bg-[#F0F4F8] blur-[60px] rounded-full transform scale-75"></div>
           <DnaAnimation />
         </div>
       </div>
-    </section>
+    </header>
   );
 };
 

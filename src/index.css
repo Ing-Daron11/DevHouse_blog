@@ -156,6 +156,33 @@
     animation: pulse-green 2s infinite;
   }
 
+  /* Variante de card para la sección de pasos */
+  .card-step {
+    @apply relative overflow-hidden rounded-[2rem] p-8 transition-all duration-500 border border-white/5;
+    background: linear-gradient(145deg, rgba(24, 51, 61, 0.8) 0%, rgba(11, 30, 38, 0.4) 100%);
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-step:hover {
+    @apply -translate-y-2 border-primary/30;
+    background: linear-gradient(145deg, rgba(24, 51, 61, 1) 0%, rgba(11, 30, 38, 0.8) 100%);
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  /* El número gigante (01, 02...) con mejor contraste */
+  .step-number {
+    @apply absolute top-4 right-6 text-6xl font-black transition-all duration-500 select-none;
+    /* Usamos el color CCDEE4 con muy baja opacidad para que parezca grabado */
+    color: rgba(204, 222, 228, 0.03);
+    -webkit-text-stroke: 1px rgba(204, 222, 228, 0.05);
+  }
+
+  .card-step:hover .step-number {
+    @apply scale-110;
+    color: rgba(165, 236, 96, 0.08); /* Verde Lima sutil al hover */
+    -webkit-text-stroke: 1px rgba(165, 236, 96, 0.2);
+  }
+
   @keyframes pulse-green {
     0% { box-shadow: 0 0 0 0 rgba(28, 98, 27, 0.7); }
     70% { box-shadow: 0 0 0 15px rgba(28, 98, 27, 0); }
@@ -230,4 +257,14 @@
 @keyframes rotate {
   0% { transform: rotateY(0deg); }
   100% { transform: rotateY(360deg); }
+}
+
+@keyframes border-glow {
+  0%, 100% { border-color: rgba(165, 236, 96, 0.2); }
+  50% { border-color: rgba(165, 236, 96, 0.6); }
+}
+
+.modal-content-active {
+  animation: border-glow 3s infinite;
+  border-width: 1px;
 }

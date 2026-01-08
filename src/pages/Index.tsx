@@ -7,7 +7,7 @@ import React from 'react';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-green-500/30">
+    <div className="min-h-screen bg-[#F8FAFC] text-[#22313A] font-sans selection:bg-accent/20">
       <HeroSection />
       <ServicesSection />
       <PartnersSection />
