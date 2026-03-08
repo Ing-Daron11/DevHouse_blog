@@ -45,17 +45,16 @@ const StatsCounter = ({ value, label }: { value: number; label: string }) => {
 // Componente principal de la sección de testimonios y garantías
 export const TestimonialsSection = () => {
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Fondo decorativo con gradiente */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/50 to-background"></div>
-      
+    <section className="py-24 relative overflow-hidden bg-card">
+      {/* Fondo petróleo oscuro y acento premium */}
+      <div className="absolute inset-0 bg-[hsl(var(--card))]" />
       <div className="container mx-auto px-6 relative z-10">
         {/* Título y descripción */}
         <AnimatedSection animation="fade-in-up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            <span className="text-gradient">Nuestro Compromiso: Tu Éxito Digital</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-primary drop-shadow-glow">
+            Nuestro Compromiso: Tu Éxito Digital
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-card-foreground max-w-3xl mx-auto">
             En Loop & Logic, nos dedicamos a transformar negocios como el tuyo. Conoce lo que te garantizamos al trabajar con nosotros.
           </p>
         </AnimatedSection>
@@ -64,49 +63,48 @@ export const TestimonialsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {/* Garantía: Crecimiento Digital */}
           <AnimatedSection animation="fade-in-up" delay={0} className="text-center">
-            <div className="card-floating p-6 h-full group">
+            <div className="card-floating p-6 h-full group bg-[hsl(var(--card))] border border-primary/30 rounded-2xl shadow-premium">
               <div className="flex justify-center mb-4">
-                {/* Icono de crecimiento/flecha ascendente */}
                 <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" /> 
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Crecimiento Digital</h3>
-              <p className="text-muted-foreground">Tu éxito es nuestra prioridad absoluta, garantizamos un enfoque del 100%.</p>
+              <h3 className="text-xl font-bold text-primary-foreground mb-2 drop-shadow-lg">Crecimiento Digital</h3>
+              <p className="text-card-foreground/90 drop-shadow-md">Tu éxito es nuestra prioridad absoluta, garantizamos un enfoque del 100%.</p>
             </div>
           </AnimatedSection>
 
           {/* Garantía: Tecnología de Vanguardia */}
           <AnimatedSection animation="fade-in-up" delay={100} className="text-center">
-          <div className="card-floating p-6 h-full group card-floating-accent-glow">
+          <div className="card-floating p-6 h-full group bg-[hsl(var(--card))] border border-accent/30 rounded-2xl shadow-premium">
             <div className="flex justify-center mb-4">
               {/* Icono de tecnología/engranaje/chip */}
               <Zap className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
             </div>
-            <h3 className="text-xl font-bold text-foreground mb-2">Tecnología de Vanguardia</h3>
-            <p className="text-muted-foreground">Aplicamos las últimas innovaciones para soluciones robustas y escalables.</p>
+            <h3 className="text-xl font-bold text-accent mb-2 drop-shadow-lg">Tecnología de Vanguardia</h3>
+            <p className="text-card-foreground/90 drop-shadow-md">Aplicamos las últimas innovaciones para soluciones robustas y escalables.</p>
           </div>
           </AnimatedSection>
 
           {/* Garantía: Resultados Medibles */}
           <AnimatedSection animation="fade-in-up" delay={200} className="text-center">
-            <div className="card-floating p-6 h-full group">
+            <div className="card-floating p-6 h-full group bg-[hsl(var(--card))] border border-primary/30 rounded-2xl shadow-premium">
               <div className="flex justify-center mb-4">
                 {/* Icono de resultados/gráfico/medalla */}
                 <TrendingUp className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Resultados Medibles</h3>
-              <p className="text-muted-foreground">Estrategias basadas en datos para un impacto real y sostenible.</p>
+              <h3 className="text-xl font-bold text-primary-foreground mb-2 drop-shadow-lg">Resultados Medibles</h3>
+              <p className="text-card-foreground/90 drop-shadow-md">Estrategias basadas en datos para un impacto real y sostenible.</p>
             </div>
           </AnimatedSection>
 
           {/* Garantía: Soporte Continuo */}
           <AnimatedSection animation="fade-in-up" delay={300} className="text-center">
-            <div className="card-floating p-6 h-full group card-floating-accent-glow">
+            <div className="card-floating p-6 h-full group bg-[hsl(var(--card))] border border-accent/30 rounded-2xl shadow-premium">
               <div className="flex justify-center mb-4">
                 {/* Icono de soporte/auriculares/escudo */}
                 <LifeBuoy className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Soporte Continuo</h3>
-              <p className="text-muted-foreground">Nuestro equipo siempre listo para asistirte en cada etapa.</p>
+              <h3 className="text-xl font-bold text-accent mb-2 drop-shadow-lg">Soporte Continuo</h3>
+              <p className="text-card-foreground/90 drop-shadow-md">Nuestro equipo siempre listo para asistirte en cada etapa.</p>
             </div>
           </AnimatedSection>
         </div>
@@ -114,33 +112,33 @@ export const TestimonialsSection = () => {
 
         {/* Testimonios/experiencia de la empresa */}
         <AnimatedSection animation="fade-in-up" delay={400} className="text-center max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold mb-8 text-gradient">La Experiencia Loop & Logic</h3>
+          <h3 className="text-3xl font-bold mb-8 text-primary">La Experiencia Loop & Logic</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Testimonio 1 */}
-            <div className="card-floating p-6 text-left relative overflow-hidden">
+            <div className="card-floating p-6 text-left relative overflow-hidden bg-[hsl(var(--card))] border border-primary/30 rounded-2xl shadow-premium">
                 <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
-                <p className="text-muted-foreground leading-relaxed mb-4 relative z-10">
+                <p className="text-card-foreground/90 leading-relaxed mb-4 relative z-10 drop-shadow-md">
                   "Un enfoque verdaderamente profesional y soluciones digitales innovadoras que están diseñadas para superar tus expectativas y transformar tu negocio."
                 </p>
-                <p className="font-semibold text-foreground relative z-10">- Enfoque y Visión</p>
+                <p className="font-semibold text-primary-foreground relative z-10 drop-shadow">- Enfoque y Visión</p>
             </div>
 
             {/* Testimonio 2 */}
-            <div className="card-floating p-6 text-left relative overflow-hidden card-floating-accent-glow">
+            <div className="card-floating p-6 text-left relative overflow-hidden bg-[hsl(var(--card))] border border-accent/30 rounded-2xl shadow-premium">
                 <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
-                <p className="text-muted-foreground leading-relaxed mb-4 relative z-10">
+                <p className="text-card-foreground/90 leading-relaxed mb-4 relative z-10 drop-shadow-md">
                   "Un equipo de desarrollo dedicado que entregará soluciones personalizadas y sistemas optimizados para revolucionar tus procesos internos."
                 </p>
-                <p className="font-semibold text-foreground relative z-10">- Eficiencia y Personalización</p>
+                <p className="font-semibold text-accent relative z-10 drop-shadow">- Eficiencia y Personalización</p>
             </div>
             
             {/* Testimonio 3 */}
-            <div className="card-floating p-6 text-left relative overflow-hidden md:col-span-2 lg:col-span-1 mx-auto w-full">
+            <div className="card-floating p-6 text-left relative overflow-hidden md:col-span-2 lg:col-span-1 mx-auto w-full bg-[hsl(var(--card))] border border-accent/30 rounded-2xl shadow-premium">
                 <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
-                <p className="text-muted-foreground leading-relaxed mb-4 relative z-10">
+                <p className="text-card-foreground/90 leading-relaxed mb-4 relative z-10 drop-shadow-md">
                   "Tecnología de vanguardia que impulsará tu conversión y un servicio excepcional, siempre disponible para asegurar tu éxito continuo."
                 </p>
-                <p className="font-semibold text-foreground relative z-10">- Innovación y Soporte</p>
+                <p className="font-semibold text-accent relative z-10 drop-shadow">- Innovación y Soporte</p>
             </div>
           </div>
         </AnimatedSection>
@@ -167,3 +165,5 @@ export const TestimonialsSection = () => {
     </section>  
   );
 };
+
+export default TestimonialsSection;

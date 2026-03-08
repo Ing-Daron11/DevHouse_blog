@@ -194,26 +194,28 @@ export const Footer = () => {
 
         {/* Barra inferior de copyright y políticas */}
         <AnimatedSection animation="fade-in-up" delay={400}>
-          <div className="border-t border-[#E6F4D9] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center bg-white/60 backdrop-blur-sm rounded-xl shadow-glow">
-            <p className="text-sm text-[#487070] mb-4 md:mb-0">
+          <div className="footer-legal-bar mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-[#18333D] opacity-80 mb-4 md:mb-0 font-medium">
               © {currentYear} Loop & Logic DevHouse. Todos los derechos reservados.
             </p>
-            <div className="flex space-x-6 text-sm">
+            <div className="flex space-x-4 text-sm">
               <a
                 href="#privacidad"
-                className="text-[#487070] hover:text-primary-glow transition-colors duration-300"
+                className="footer-legal-link"
               >
                 Privacidad
               </a>
+              <span className="footer-legal-sep">|</span>
               <a
                 href="#terminos"
-                className="text-[#487070] hover:text-primary-glow transition-colors duration-300"
+                className="footer-legal-link"
               >
                 Términos
               </a>
+              <span className="footer-legal-sep">|</span>
               <a
                 href="#cookies"
-                className="text-[#487070] hover:text-primary-glow transition-colors duration-300"
+                className="footer-legal-link"
               >
                 Cookies
               </a>

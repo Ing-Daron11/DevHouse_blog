@@ -73,9 +73,11 @@ const ServicesSection = () => {
           <span className="text-accent text-xs font-bold uppercase tracking-[0.3em] mb-4 block opacity-80">
             Soluciones de Vanguardia
           </span>
-            <h2 className="text-4xl md:text-6xl font-extrabold text-[#22313A] mb-6 tracking-tight">
-              Nuestros {/* ... */}
+          <AnimatedSection animation="fade-in-up" delay={0}>
+            <h2 className="text-4xl md:text-6xl font-extrabold text-[#0B1E26] mb-6 tracking-tight modal-title drop-shadow-lg">
+              Nuestros Servicios
           </h2>
+          </AnimatedSection>
           <div className="flex justify-center gap-1">
             <div className="h-1 w-12 bg-primary rounded-full"></div>
             <div className="h-1 w-4 bg-accent rounded-full"></div>
@@ -113,6 +115,7 @@ const ServicesSection = () => {
             aria-label="Carrusel de servicios"
           >
             {services.map((service, index) => (
+              <AnimatedSection key={service.title} animation={index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'} delay={300 + index * 100}>
               <div
                 key={index}
                 className={`min-w-[280px] md:min-w-[340px] group relative flex flex-col p-6 rounded-2xl border border-gray-200 bg-white shadow-lg transition-all duration-500 hover:border-accent/30 hover:-translate-y-2 snap-center overflow-hidden ${activeIndex === index ? 'border-accent shadow-2xl scale-105' : ''} ${index === 0 ? 'ml-2' : ''} ${index === services.length - 1 ? 'mr-2' : ''}`}
@@ -126,11 +129,11 @@ const ServicesSection = () => {
                 <div className="w-16 h-16 bg-gradient-to-br from-green-100 to-white rounded-2xl flex items-center justify-center text-accent mb-8 border border-green-100 group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-500 shadow-xl">
                   {service.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-accent transition-colors">
+                <h3 className="text-2xl font-bold text-[#0B1E26] mb-4 group-hover:text-accent transition-colors">
                   {service.title}
                 </h3>
 
-                <p className="text-gray-600 leading-relaxed mb-8 text-lg group-hover:text-gray-900 transition-colors">
+                <p className="text-[#0B1E26] leading-relaxed mb-8 text-lg group-hover:text-accent transition-colors">
                   {service.description}
                 </p>
 
@@ -147,6 +150,7 @@ const ServicesSection = () => {
                 {/* Barra de progreso decorativa abajo */}
                 <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-gradient-to-r from-primary to-accent group-hover:w-full transition-all duration-700"></div>
               </div>
+              </AnimatedSection>
             ))}
           </div>
 
@@ -184,5 +188,6 @@ const ServicesSection = () => {
 
 // Importar ServiceModal
 import ServiceModal from './ServiceModal';
+import { AnimatedSection } from './AnimatedSection';
 
 export default ServicesSection;

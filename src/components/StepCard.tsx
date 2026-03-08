@@ -10,10 +10,10 @@ interface StepCardProps {
 
 const StepCard: React.FC<StepCardProps> = ({ n, title, desc, isLast }) => (
   <div 
-    className="group relative flex flex-col p-6 xl:p-6 rounded-[1.5rem] border border-[#E6ECF1] bg-white shadow-[0_4px_24px_0_rgba(34,49,58,0.06)] transition-all duration-500 hover:border-accent/40 hover:shadow-lg hover:-translate-y-2 min-h-[320px] lg:min-h-[300px] animate-fade-in-up"
+    className="group relative flex flex-col p-6 xl:p-6 rounded-[1.5rem] border border-[#E0E6ED] bg-[#F8FAFC] shadow-[0_4px_24px_0_rgba(34,49,58,0.04)] transition-all duration-500 hover:border-accent/40 hover:shadow-lg hover:-translate-y-2 min-h-[320px] lg:min-h-[300px] animate-fade-in-up"
   >
     {/* Número de fondo estilizado */}
-    <span className="absolute top-6 right-8 text-6xl font-black text-[#22313A]/10 group-hover:text-accent/20 transition-all duration-700 pointer-events-none italic">
+    <span className="absolute top-6 right-8 text-6xl font-black text-[#18333D]/10 group-hover:text-accent/20 transition-all duration-700 pointer-events-none italic">
       {n}
     </span>
     <div className="relative z-10 flex flex-col h-full">
@@ -23,7 +23,7 @@ const StepCard: React.FC<StepCardProps> = ({ n, title, desc, isLast }) => (
           <span className="text-accent font-black text-lg">{n}</span>
         </div>
       </div>
-      <h3 className="text-[#22313A] text-xl xl:text-3xl font-bold mb-4 leading-tight group-hover:text-accent transition-colors duration-300">
+      <h3 className="text-[#18333D] text-xl xl:text-3xl font-bold mb-4 leading-tight group-hover:text-accent transition-colors duration-300">
         {title}
       </h3>
       <p className="text-[#487070] text-xl xl:text-xl leading-relaxed mb-6 group-hover:text-accent/80 transition-colors duration-300">

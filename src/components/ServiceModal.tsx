@@ -30,42 +30,38 @@ const ServiceModal = ({ isOpen, service, onClose}) => {
 
      return (
         <div 
-            className={`fixed inset-0 z-50 flex items-center justify-center bg-white/80 backdrop-blur-sm p-4 animate-fade-in ${fadeInClass}`}
-            onClick={cerrarModal} // Cierra la modal si se hace clic fuera del contenido
+            className={`fixed inset-0 z-50 flex items-center justify-center bg-[#0B1E26cc] backdrop-blur-[3px] p-4 animate-fade-in ${fadeInClass}`}
+            onClick={cerrarModal}
             onAnimationEnd={animacionFin}
         >
             <div 
-                className={`relative border border-gray-200 rounded-3xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-0 md:p-0 animate-slide-in-up ${slideInClass}`}
+                className={`relative rounded-3xl modal-shadow max-w-2xl w-full max-h-[90vh] overflow-y-auto p-0 md:p-0 animate-slide-in-up ${slideInClass}`}
                 style={{
-                    background: 'linear-gradient(135deg, #ffffff 80%, #e3f6ed 100%)',
-                    boxShadow: '0 12px 40px -8px rgba(34,49,58,0.16), 0 0 30px hsla(160,81%,65%,0.08)',
-                    border: '1.5px solid #e0e7ef',
-                    backdropFilter: 'blur(8px) saturate(1.1)',
-                    WebkitBackdropFilter: 'blur(8px) saturate(1.1)'
+                    fontFamily: "'Barlow Condensed', Arial, sans-serif",
                 }}
-                onClick={e => e.stopPropagation()} // Evita que el clic dentro del contenido cierre la modal
+                onClick={e => e.stopPropagation()}
             >
             {/*--- Btn cerrar ---*/}
 
                 <button 
                     onClick={cerrarModal} 
-                    className="absolute top-4 right-4 p-2 rounded-full text-accent hover:bg-accent/20 hover:text-gray-900 transition-colors shadow-lg backdrop-blur"
+                    className="modal-close absolute top-4 right-4 p-2 rounded-full text-2xl"
                     aria-label="Cerrar">
-                    <X className="h-6 w-6" />
+                    <X className="h-7 w-7" />
                 </button>
 
                 <div className="flex items-center mb-8 px-8 pt-8">
-                    <div className="icon-wrapper bg-gradient-to-br from-[#e3f6ed] to-[#A5EC60] p-4 rounded-2xl shadow-lg mr-6 border border-green-100">
+                    <div className="icon-wrapper bg-gradient-to-br from-[#e3f6ed] to-[#A5EC60] p-5 rounded-2xl shadow-xl mr-6 border-2 border-[#A5EC60]">
                         {service.icon}
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 drop-shadow mb-0">{service.title}</h2>
+                    <h2 className="modal-title mb-0">{service.title}</h2>
                 </div>
 
-                <p className="text-lg md:text-xl text-gray-700 mb-8 px-8 font-medium">{service.description}</p>
+                <p className="text-lg md:text-xl mb-8 px-8 font-medium text-modal-dark" style={{fontFamily: "'Barlow Condensed', Arial, sans-serif", color: '#0B1E26'}}>{service.description}</p>
 
                                 <div className="prose max-w-none px-8">
-                                    <h3 className="text-2xl font-bold mt-8 mb-4 text-accent">¿Por qué elegir este servicio?</h3>
-                                    <ul className="list-disc list-inside space-y-2 text-gray-700">
+                                    <h3 className="text-2xl font-bold mt-8 mb-4 text-accent" style={{fontFamily: "'Barlow Condensed', Arial, sans-serif"}}>¿Por qué elegir este servicio?</h3>
+                                    <ul className="list-disc list-inside space-y-2 text-modal-dark" style={{fontFamily: "'Barlow Condensed', Arial, sans-serif", color: '#0B1E26'}}>
                                                 {service.title === "Desarrollo Web" && (
                                                     <>
                                                         <li><span className="font-bold text-foreground">Diseño Responsivo:</span> Tu sitio se verá perfecto en todos los dispositivos.</li>
@@ -122,10 +118,12 @@ const ServiceModal = ({ isOpen, service, onClose}) => {
                         href="https://wa.me/573025922818?text=Hola,%20me%20gustaría%20agendar%20una%20consultoría%20gratuita%20sobre%20mi%20proyecto."
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn-primary inline-flex items-center shadow-lg bg-accent text-white hover:bg-accent/90 rounded-xl px-6 py-3 font-semibold text-base"
-                    >                                        
-                        Agenda una Consultoría Gratuita
-                        <ArrowRight className="ml-2 h-5 w-5" />
+                        className="btn-agendar-cita"
+                    >
+                        <span className="flex items-center justify-center gap-3 w-full">
+                            <span className="font-bold text-lg md:text-xl tracking-wide">Agenda una Consultoría Gratuita</span>
+                            <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
+                        </span>
                     </a>
                 </div>
             </div>
