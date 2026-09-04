@@ -1,14 +1,35 @@
-import React from "react";
+import { Check } from 'lucide-react';
+import { AnimatedSection } from './AnimatedSection';
+
+const ITEMS = [
+  'Satisfacción garantizada: revisamos y ajustamos hasta que estés conforme.',
+  'Propuestas claras: sin costos ocultos ni sorpresas.',
+  'Comunicación directa: siempre disponibles para resolver tus dudas.',
+  'Propiedad total: el código es tuyo, con acceso al repositorio desde el inicio.',
+  'Política de devolución: si no cumplimos lo prometido, te devolvemos tu dinero.',
+];
 
 const GuaranteesSection = () => (
-  <section className="py-16 bg-white" id="garantias">
-    <div className="container mx-auto px-4 max-w-3xl text-center">
-      <h2 className="text-3xl font-bold mb-4">Garantías y Políticas</h2>
-      <ul className="space-y-4 text-gray-700">
-        <li>✔️ Satisfacción garantizada: revisamos y ajustamos hasta que estés conforme.</li>
-        <li>✔️ Propuestas claras: sin costos ocultos ni sorpresas.</li>
-        <li>✔️ Comunicación directa: siempre disponibles para resolver tus dudas.</li>
-        <li>✔️ Política de devolución: si no cumplimos lo prometido, te devolvemos tu dinero.</li>
+  <section id="garantias" className="border-b border-border py-24">
+    <div className="container">
+      <AnimatedSection animation="fade-in-up">
+        <span className="kicker">Garantías</span>
+        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+          Compromisos por escrito
+        </h2>
+      </AnimatedSection>
+
+      <ul className="mt-10 max-w-2xl space-y-4">
+        {ITEMS.map((item, i) => (
+          <AnimatedSection key={item} animation="fade-in-up" delay={i * 60}>
+            <li className="flex gap-3">
+              <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-accent/40 text-accent">
+                <Check className="h-3 w-3" />
+              </span>
+              <span className="text-muted-foreground">{item}</span>
+            </li>
+          </AnimatedSection>
+        ))}
       </ul>
     </div>
   </section>

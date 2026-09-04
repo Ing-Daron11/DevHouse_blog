@@ -4,9 +4,7 @@ import tailwindcssAnimate from "tailwindcss-animate";
 export default {
 	darkMode: ["class"],
 	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
+		"./index.html",
 		"./src/**/*.{ts,tsx}",
 	],
 	prefix: "",
@@ -20,7 +18,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
 				inter: ['Inter', 'sans-serif'],
+				mono: ['JetBrains Mono', 'ui-monospace', 'SF Mono', 'Menlo', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

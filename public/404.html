@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Loop &amp; Logic DevHouse</title>
+    <style>html,body{background:#0a0a0a}</style>
+    <!-- SPA fallback for GitHub Pages: redirect deep links back to index with the path preserved -->
+    <script>
+      (function () {
+        var seg = 1; // number of path segments to keep (project pages: /DevHouse_blog/)
+        var l = window.location;
+        var path = l.pathname.split('/').slice(0, 1 + seg).join('/');
+        var rest = l.pathname.slice(path.length).replace(/&/g, '~and~');
+        l.replace(path + '/?/' + rest + (l.search ? '&' + l.search.slice(1) : '') + l.hash);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

@@ -1,19 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark">
   <head>
-    <!-- Google Fonts: Barlow Condensed -->
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&display=swap" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loop & Logic DevHouse - Digitaliza tu negocio sin complicarte</title>
-    <meta name="description" content="Somos tu DevHouse especializado en soluciones tecnológicas modernas. Desarrollo web, automatizaciones con IA, CRM/ERP, marketing digital y chatbots." />
+    <title>Loop &amp; Logic DevHouse — Software, IA y automatización a medida</title>
+    <meta name="description" content="DevHouse de software. Construimos aplicaciones web, automatizaciones con IA, CRM/ERP y sistemas a medida. Código limpio, escalable y bien documentado." />
     <meta name="author" content="Loop & Logic DevHouse" />
+    <meta name="theme-color" content="#17140f" />
 
+    <link rel="icon" href="/DevHouse_blog/favicon.svg" type="image/svg+xml" />
 
-    <!-- Puedes agregar aquí tus propias imágenes y metadatos para Open Graph y Twitter -->
-    <meta property="og:title" content="Loop & Logic DevHouse - Digitaliza tu negocio sin complicarte" />
-    <meta property="og:description" content="Somos tu DevHouse especializado en soluciones tecnológicas modernas. Desarrollo web, automatizaciones con IA, CRM/ERP, marketing digital y chatbots." />
+    <meta property="og:title" content="Loop & Logic DevHouse — Software, IA y automatización a medida" />
+    <meta property="og:description" content="DevHouse de software. Aplicaciones web, automatizaciones con IA, CRM/ERP y sistemas a medida." />
     <meta property="og:type" content="website" />
+    <!-- TODO: subir public/og.png (1200x630) y ajustar la URL absoluta al dominio final -->
+    <meta property="og:image" content="/DevHouse_blog/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>html,body{background:#17140f}</style>
+
+    <!-- SPA redirect for GitHub Pages (pairs with public/404.html) -->
+    <script>
+      (function () {
+        var r = new URLSearchParams(window.location.search).get('/');
+        if (r) {
+          history.replaceState(null, null,
+            window.location.pathname.slice(0, -1) + r.replace(/~and~/g, '&') + window.location.hash);
+        }
+      })();
+    </script>
   </head>
 
   <body>

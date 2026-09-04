@@ -1,228 +1,125 @@
-// Footer: Pie de página con información de contacto, servicios y enlaces sociales
-import { Mail, Phone, MapPin, Sparkles } from 'lucide-react';
-import { AnimatedSection } from './AnimatedSection';
-import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { FaWhatsapp, FaInstagram, FaGithub } from 'react-icons/fa';
+import { LegalDialog } from './LegalDialog';
 
-// Componente principal del pie de página
-export const Footer = () => {
-  // Año actual para copyright
-  const currentYear = new Date().getFullYear();
+const WA = 'https://wa.me/573025922818?text=Hola,%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20Loop%20%26%20Logic%20DevHouse.';
 
-  // Mensaje predefinido para WhatsApp
-  const message = "Hola, me interesa conocer más sobre los servicios de Loop & Logic DevHouse. ¿Podrían darme más información?";
+const COLS = [
+  {
+    title: 'Servicios',
+    links: [
+      'Desarrollo Web',
+      'Apps Android',
+      'Automatizaciones IA',
+      'CRM / ERP',
+      'Marketing Digital',
+      'Chatbots',
+      'Ciberseguridad',
+    ].map((label) => ({ label, href: '#servicios' })),
+  },
+  {
+    title: 'Empresa',
+    links: [
+      { label: 'Nosotros', href: '#nosotros' },
+      { label: 'Proceso', href: '#proceso' },
+      { label: 'Compromiso', href: '#compromiso' },
+      { label: 'Blog', href: '#blog' },
+      { label: 'Contacto', href: '#contacto' },
+    ],
+  },
+];
 
-  // Enlaces a redes sociales
-  const socialLinks = [
-    {
-      name: 'WhatsApp',
-      href: `https://wa.me/3025922818?text=${message}`,
-      icon: FaWhatsapp,
-      colorClass: 'text-green-500', // El color estándar de WhatsApp
-      hoverColorClass: 'group-hover:text-green-400', // Un verde más claro al hacer hover
-      ariaLabel: 'WhatsApp de Loop & Logic DevHouse',
-    },
-    {
-      name: 'Instagram',
-      href: 'https://www.instagram.com/looplogicdevhouse?utm_source=qr&igsh=NXZod2lhMzFhYXdq',
-      icon: FaInstagram,
-      colorClass: 'text-[#833AB4]', // Púrpura de Instagram
-      hoverColorClass: 'group-hover:text-purple-400', // Un púrpura más claro al hacer hover
-      ariaLabel: 'Instagram de Loop & Logic DevHouse',
-    },
-  ];
-  
-  // Enlaces a servicios principales
-  const serviceLinks = [
-    { label: 'Desarrollo Web', href: '#servicios' },
-    { label: 'Automatizaciones IA', href: '#servicios' },
-    { label: 'CRM/ERP', href: '#servicios' },
-    { label: 'Marketing Digital', href: '#servicios' },
-    { label: 'Chatbots', href: '#servicios' },
-    { label: 'Soluciones a Medida', href: '#servicios' },
-    { label: 'Ciberseguridad', href: '#servicios' },
-    { label: 'Identidad Visual', href: '#servicios' },
-    { label: 'Soporte Técnico', href: '#servicios' },
-  ];
+const SOCIAL = [
+  { icon: FaWhatsapp, href: WA, label: 'WhatsApp' },
+  { icon: FaInstagram, href: 'https://www.instagram.com/looplogicdevhouse', label: 'Instagram' },
+  { icon: FaGithub, href: 'https://github.com/looplogicdevhouse-dotcom', label: 'GitHub' },
+];
 
-  // Enlaces a políticas y legales
-  const otrosLinks = [
-    { label: 'Privacidad', href: '#privacidad' },
-    { label: 'Términos', href: '#terminos' },
-    { label: 'Cookies', href: '#cookies' }
-  ];
+const CONTACT = [
+  { icon: Mail, text: 'looplogicdevhouse@gmail.com', href: 'mailto:looplogicdevhouse@gmail.com' },
+  { icon: Phone, text: '+57 302 5922818', href: WA },
+  { icon: MapPin, text: 'Guadalajara de Buga, Colombia', href: 'https://www.google.com/maps/place/Guadalajara+de+Buga,+Valle+del+Cauca,+Colombia' },
+];
 
-  // Información de contacto
-  const infoContacto = [
-    {
-      icon: Mail,
-      text: 'looplogicdevhouse@gmail.com',
-      href: 'mailto:looplogicdevhouse@gmail.com',
-      ariaLabel: 'Enviar correo a Loop & Logic DevHouse',
-      type: 'email'
-    },
-    {
-      icon: Phone,
-      text: '+57 302 5922818',
-      href: `https://wa.me/573025922818?text=${message}`,
-      ariaLabel: 'Contactar por WhatsApp',
-      type: 'phone'
-    },
-    {
-      icon: MapPin,
-      text: 'Guadalajara de Buga, Colombia.',
-      href: 'https://www.google.com/maps/place/Guadalajara+de+Buga,+Valle+del+Cauca,+Colombia',
-      ariaLabel: 'Ver ubicación en Google Maps',
-      type: 'location'
-    }
-  ];
-
-  return (
-    <footer className="relative bg-gradient-to-b from-[#FEF6E7] via-[#CCDEE4]/60 to-[#A5EC60]/30 border-t border-[#E6F4D9] text-[#18333D] shadow-[0_8px_32px_0_rgba(165,236,96,0.10)] overflow-hidden">
-     {/* Fondo decorativo con gradiente y brillos */}
-     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(165,236,96,0.12)_0%,transparent_70%)] pointer-events-none"></div>
-     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(240,163,21,0.08)_0%,transparent_70%)] pointer-events-none"></div>
-     <div className="container mx-auto px-6 py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Información de la empresa y redes sociales */}
-          <AnimatedSection animation="fade-in-up">
-            <div className="space-y-6">
-              <div className="flex items-center mb-4">
-                <Sparkles className="text-primary-glow drop-shadow-[0_0_12px_rgba(165,236,96,0.4)] mr-2 h-7 w-7" />
-                <h3 className="text-xl font-extrabold text-gradient drop-shadow-[0_2px_8px_rgba(165,236,96,0.10)]">
-                  Loop & Logic DevHouse
-                </h3>
-              </div>
-              <p className="text-[#487070] leading-relaxed">
-                Tu partner tecnológico especializado en soluciones digitales innovadoras. 
-                Transformamos ideas en experiencias excepcionales.
-              </p>
-
-              {/* Enlaces sociales */}
-              <div className="flex space-x-4 mt-6">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white/70 shadow-glow rounded-lg hover:bg-accent/20 transition-colors duration-300 group flex items-center justify-center backdrop-blur-md"
-                    aria-label={social.ariaLabel}
-                  >
-                    <social.icon className={`h-5 w-5 ${social.colorClass} ${social.hoverColorClass} transition-colors drop-shadow-[0_0_8px_rgba(165,236,96,0.15)]`} />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Servicios */}
-          <AnimatedSection animation="fade-in-up" delay={100}>
-            <div>
-              <h4 className="text-lg font-semibold text-[#18333D] mb-6">Servicios</h4>
-              <ul className="space-y-3">
-                {serviceLinks.map((service) => (
-                  <li key={service.label}>
-                    <a
-                      href={service.href}
-                      className="text-[#487070] hover:text-primary-glow transition-colors duration-300"
-                    >
-                      {service.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimatedSection>
-
-          {/* Empresa */}
-          <AnimatedSection animation="fade-in-up" delay={200}>
-            <div>
-              <h4 className="text-lg font-semibold text-[#18333D] mb-6">Empresa</h4>
-              <ul className="space-y-3">
-                {/* Enlaces de la empresa */}
-                {[
-                  { label: 'Nosotros', href: '#nosotros' },
-                  { label: 'Portafolio', href: '#portafolio' },
-                  { label: 'Casos de Éxito', href: '#testimonios' },
-                  { label: 'Blog', href: '#blog' },
-                  { label: 'Carreras', href: '#carreras' },
-                  { label: 'Contacto', href: '#contacto' }
-                ].map((link) => (
-                  <li key={link.label}>
-                    <a
-                      href={link.href}
-                      className="text-[#487070] hover:text-primary-glow transition-colors duration-300"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </AnimatedSection>
-
-          {/* Contacto */}
-          <AnimatedSection animation="fade-in-up" delay={300}>
-            <div>
-              <h4 className="text-lg font-semibold text-[#18333D] mb-6">Contacto</h4>
-              <div className="space-y-4">
-                {/* Información de contacto: email, teléfono, ubicación */}
-                {infoContacto.map((item) => (
-                  <div key={item.text} className="flex items-start"> 
-                    <item.icon className="h-4 w-4 text-primary-glow mr-3 flex-shrink-0 mt-1 drop-shadow-[0_0_8px_rgba(165,236,96,0.18)]" />
-                    {item.href ? (
-                      <a
-                        href={item.href}
-                        target={item.type !== 'email' ? "_blank" : "_self"}
-                        rel={item.type !== 'email' ? "noopener noreferrer" : undefined}
-                        className="text-[#487070] hover:text-primary-glow transition-colors duration-300 text-sm break-words"
-                        aria-label={item.ariaLabel}
-                      >
-                        {item.text}
-                      </a>
-                    ) : (
-                      <span className="text-[#487070] text-sm">
-                        {item.text}
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
+export const Footer = () => (
+  <footer className="bg-background">
+    <div className="container py-16">
+      <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-4">
+          <div className="font-display text-xl font-extrabold tracking-tight">
+            Dev<span className="text-accent">House</span>
+          </div>
+          <p className="max-w-xs text-sm text-muted-foreground">
+            DevHouse de software. Transformamos ideas en sistemas escalables y bien documentados.
+          </p>
+          <div className="flex gap-2">
+            {SOCIAL.map((s) => (
+              <a
+                key={s.label}
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                className="flex h-9 w-9 items-center justify-center rounded-md border border-border text-muted-foreground transition-colors hover:border-accent/50 hover:text-foreground"
+              >
+                <s.icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
         </div>
 
-        {/* Barra inferior de copyright y políticas */}
-        <AnimatedSection animation="fade-in-up" delay={400}>
-          <div className="footer-legal-bar mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-[#18333D] opacity-80 mb-4 md:mb-0 font-medium">
-              © {currentYear} Loop & Logic DevHouse. Todos los derechos reservados.
-            </p>
-            <div className="flex space-x-4 text-sm">
-              <a
-                href="#privacidad"
-                className="footer-legal-link"
-              >
-                Privacidad
-              </a>
-              <span className="footer-legal-sep">|</span>
-              <a
-                href="#terminos"
-                className="footer-legal-link"
-              >
-                Términos
-              </a>
-              <span className="footer-legal-sep">|</span>
-              <a
-                href="#cookies"
-                className="footer-legal-link"
-              >
-                Cookies
-              </a>
-            </div>
+        {COLS.map((col) => (
+          <div key={col.title}>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+              {col.title}
+            </h4>
+            <ul className="mt-4 space-y-2.5">
+              {col.links.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        </AnimatedSection>
+        ))}
+
+        <div>
+          <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+            Contacto
+          </h4>
+          <ul className="mt-4 space-y-3">
+            {CONTACT.map((c) => (
+              <li key={c.text}>
+                <a
+                  href={c.href}
+                  target={c.href.startsWith('http') ? '_blank' : undefined}
+                  rel={c.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="flex items-start gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  <c.icon className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
+                  <span className="break-words">{c.text}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </footer>
-  );
-};
+
+      <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-sm text-muted-foreground sm:flex-row">
+        <p>© {new Date().getFullYear()} Loop &amp; Logic DevHouse. Todos los derechos reservados.</p>
+        <div className="flex gap-6">
+          <LegalDialog topic="privacidad">Privacidad</LegalDialog>
+          <LegalDialog topic="terminos">Términos</LegalDialog>
+          <LegalDialog topic="cookies">Cookies</LegalDialog>
+        </div>
+      </div>
+    </div>
+  </footer>
+);
+
+export default Footer;

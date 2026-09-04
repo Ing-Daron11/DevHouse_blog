@@ -1,38 +1,52 @@
-
-import { Eye, HeartHandshake, MessageCircle } from 'lucide-react';
+import { Eye, HeartHandshake, MessagesSquare } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
-import React from "react";
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+
+const VALUES = [
+  {
+    icon: Eye,
+    title: 'Transparencia',
+    body: 'Ves el repositorio, los avances y las decisiones técnicas desde el día uno. Sin cajas negras.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Sinceridad',
+    body: 'Si algo no conviene a tu negocio, te lo decimos. Propuestas claras, sin costos ocultos.',
+  },
+  {
+    icon: MessagesSquare,
+    title: 'Comunicación',
+    body: 'Un canal directo con quien escribe el código. Feedback continuo en cada etapa.',
+  },
+];
 
 const AboutUsSection = () => (
-  <section className="py-16 bg-white" id="about-us">
-    <div className="container mx-auto px-4 max-w-3xl text-center">
-      <AnimatedSection animation="fade-in-up" className="mb-6" delay={0}>
-        <h2 className="text-4xl font-extrabold modal-title">Sobre Nosotros</h2>
+  <section id="nosotros" className="border-b border-border py-24">
+    <div className="container">
+      <AnimatedSection animation="fade-in-up">
+        <span className="kicker">Nosotros</span>
+        <h2 className="mt-3 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">
+          Un equipo pequeño que trata tu proyecto como propio
+        </h2>
+        <p className="mt-4 max-w-2xl text-muted-foreground">
+          En DevHouse construimos relaciones largas, no entregables sueltos. Te acompañamos
+          desde la idea hasta el soporte, con resultados medibles en cada paso.
+        </p>
       </AnimatedSection>
-      <div className="flex justify-center gap-8 mb-6">
-        <AnimatedSection animation="scale-in" delay={100} className="flex flex-col items-center">
-          <Eye className="w-10 h-10 text-accent mb-2 transition-transform duration-500 hover:scale-125" />
-          <span className="font-bold text-accent">Transparencia</span>
-        </AnimatedSection>
-        <AnimatedSection animation="scale-in" delay={200} className="flex flex-col items-center">
-          <HeartHandshake className="w-10 h-10 text-accent mb-2 transition-transform duration-500 hover:scale-125" />
-          <span className="font-bold text-accent">Sinceridad</span>
-        </AnimatedSection>
-        <AnimatedSection animation="scale-in" delay={300} className="flex flex-col items-center">
-          <MessageCircle className="w-10 h-10 text-accent mb-2 transition-transform duration-500 hover:scale-125" />
-          <span className="font-bold text-accent">Comunicación</span>
-        </AnimatedSection>
+
+      <div className="mt-12 grid gap-6 md:grid-cols-3">
+        {VALUES.map((v, i) => (
+          <AnimatedSection key={v.title} animation="fade-in-up" delay={i * 100}>
+            <Card className="h-full">
+              <CardHeader>
+                <v.icon className="h-6 w-6 text-accent" />
+                <CardTitle className="text-lg">{v.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">{v.body}</CardContent>
+            </Card>
+          </AnimatedSection>
+        ))}
       </div>
-      <AnimatedSection animation="slide-in-left" delay={400}>
-        <p className="mb-4 text-lg text-gray-700" style={{fontFamily: "'Barlow Condensed', Arial, sans-serif"}}>
-          En DevHouse, creemos en la transparencia, la sinceridad y la comunicación directa. Nuestro equipo está comprometido a ayudarte a crecer digitalmente, brindando soluciones honestas y personalizadas.
-        </p>
-      </AnimatedSection>
-      <AnimatedSection animation="slide-in-right" delay={500}>
-        <p className="text-gray-600" style={{fontFamily: "'Barlow Condensed', Arial, sans-serif"}}>
-          Nos apasiona crear relaciones duraderas con nuestros clientes, acompañándolos en cada paso del proceso y asegurando resultados reales. ¡Conócenos y descubre cómo podemos ayudarte!
-        </p>
-      </AnimatedSection>
     </div>
   </section>
 );

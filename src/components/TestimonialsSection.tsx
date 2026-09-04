@@ -1,169 +1,96 @@
-// Sección de testimonios y garantías de la empresa
-import { Star, Quote, TrendingUp, Zap, Rocket, LifeBuoy } from 'lucide-react';
+import { Rocket, Zap, TrendingUp, LifeBuoy } from 'lucide-react';
 import { AnimatedSection } from './AnimatedSection';
-import { useCounterAnimation } from '@/hooks/useScrollAnimation';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 
-// (Opcional) Testimonios de clientes (no se usan en el render actual)
-const testimonials = [
-  {
-    name: 'María González',
-    company: 'CEO, TechStart',
-    text: 'Loop & Logic transformó completamente nuestro negocio. Su enfoque profesional y soluciones innovadoras superaron todas nuestras expectativas.',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1494790108755-2616b332c265?w=150&h=150&fit=crop&crop=face'
-  },
-  {
-    name: 'Carlos Mendoza',
-    company: 'Director, InnovateCorp',
-    text: 'El equipo de desarrollo más profesional con el que hemos trabajado. Entregaron un CRM personalizado que revolucionó nuestros procesos.',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face'
-  },
-  {
-    name: 'Ana Rodríguez',
-    company: 'Fundadora, DigitalFlow',
-    text: 'Su chatbot con IA aumentó nuestra conversión en un 300%. Tecnología de vanguardia con un servicio excepcional.',
-    rating: 5,
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face'
-  }
+const COMMITMENTS = [
+  { icon: Rocket, title: 'Crecimiento digital', body: 'Tu objetivo de negocio guía cada decisión técnica.' },
+  { icon: Zap, title: 'Tecnología actual', body: 'Stack moderno para soluciones robustas y escalables.' },
+  { icon: TrendingUp, title: 'Resultados medibles', body: 'Métricas desde el primer sprint, no promesas.' },
+  { icon: LifeBuoy, title: 'Soporte continuo', body: 'Seguimos a tu lado tras el lanzamiento.' },
 ];
 
-// Componente para mostrar un contador animado de estadísticas (no usado en el render actual)
-const StatsCounter = ({ value, label }: { value: number; label: string }) => {
-  const { ref, count } = useCounterAnimation(value);
-  
-  return (
-    <div ref={ref as any} className="text-center">
-      <div className="text-4xl md:text-5xl font-bold text-gradient mb-2">
-        {count}+
-      </div>
-      <div className="text-muted-foreground font-medium">{label}</div>
-    </div>
-  );
-};
+const METRICS = [
+  { value: '<6h', label: 'primera respuesta' },
+  { value: '2 sem', label: 'a primer entregable' },
+  { value: '100%', label: 'propiedad del código' },
+  { value: '30 días', label: 'de soporte incluido' },
+];
 
-// Componente principal de la sección de testimonios y garantías
-export const TestimonialsSection = () => {
-  return (
-    <section className="py-24 relative overflow-hidden bg-card">
-      {/* Fondo petróleo oscuro y acento premium */}
-      <div className="absolute inset-0 bg-[hsl(var(--card))]" />
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Título y descripción */}
-        <AnimatedSection animation="fade-in-up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-primary drop-shadow-glow">
-            Nuestro Compromiso: Tu Éxito Digital
-          </h2>
-          <p className="text-xl text-card-foreground max-w-3xl mx-auto">
-            En Loop & Logic, nos dedicamos a transformar negocios como el tuyo. Conoce lo que te garantizamos al trabajar con nosotros.
-          </p>
-        </AnimatedSection>
+/**
+ * TODO(contenido): cuando haya testimonios reales (nombre, cargo, empresa, foto
+ * opcional y frase), poblar TESTIMONIALS y se renderiza la grilla automáticamente.
+ */
+interface Testimonial {
+  quote: string;
+  name: string;
+  role: string;
+}
+const TESTIMONIALS: Testimonial[] = [];
 
-        {/* Cuadros de garantías/valores de la empresa */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {/* Garantía: Crecimiento Digital */}
-          <AnimatedSection animation="fade-in-up" delay={0} className="text-center">
-            <div className="card-floating p-6 h-full group bg-[hsl(var(--card))] border border-primary/30 rounded-2xl shadow-premium">
-              <div className="flex justify-center mb-4">
-                <Rocket className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" /> 
-              </div>
-              <h3 className="text-xl font-bold text-primary-foreground mb-2 drop-shadow-lg">Crecimiento Digital</h3>
-              <p className="text-card-foreground/90 drop-shadow-md">Tu éxito es nuestra prioridad absoluta, garantizamos un enfoque del 100%.</p>
-            </div>
-          </AnimatedSection>
+const WA_LINK =
+  'https://wa.me/573025922818?text=Hola,%20me%20gustar%C3%ADa%20agendar%20una%20consultor%C3%ADa%20gratuita%20sobre%20mi%20proyecto.';
 
-          {/* Garantía: Tecnología de Vanguardia */}
-          <AnimatedSection animation="fade-in-up" delay={100} className="text-center">
-          <div className="card-floating p-6 h-full group bg-[hsl(var(--card))] border border-accent/30 rounded-2xl shadow-premium">
-            <div className="flex justify-center mb-4">
-              {/* Icono de tecnología/engranaje/chip */}
-              <Zap className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
-            </div>
-            <h3 className="text-xl font-bold text-accent mb-2 drop-shadow-lg">Tecnología de Vanguardia</h3>
-            <p className="text-card-foreground/90 drop-shadow-md">Aplicamos las últimas innovaciones para soluciones robustas y escalables.</p>
-          </div>
-          </AnimatedSection>
-
-          {/* Garantía: Resultados Medibles */}
-          <AnimatedSection animation="fade-in-up" delay={200} className="text-center">
-            <div className="card-floating p-6 h-full group bg-[hsl(var(--card))] border border-primary/30 rounded-2xl shadow-premium">
-              <div className="flex justify-center mb-4">
-                {/* Icono de resultados/gráfico/medalla */}
-                <TrendingUp className="h-12 w-12 text-primary group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-primary-foreground mb-2 drop-shadow-lg">Resultados Medibles</h3>
-              <p className="text-card-foreground/90 drop-shadow-md">Estrategias basadas en datos para un impacto real y sostenible.</p>
-            </div>
-          </AnimatedSection>
-
-          {/* Garantía: Soporte Continuo */}
-          <AnimatedSection animation="fade-in-up" delay={300} className="text-center">
-            <div className="card-floating p-6 h-full group bg-[hsl(var(--card))] border border-accent/30 rounded-2xl shadow-premium">
-              <div className="flex justify-center mb-4">
-                {/* Icono de soporte/auriculares/escudo */}
-                <LifeBuoy className="h-12 w-12 text-accent group-hover:scale-110 transition-transform duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-accent mb-2 drop-shadow-lg">Soporte Continuo</h3>
-              <p className="text-card-foreground/90 drop-shadow-md">Nuestro equipo siempre listo para asistirte en cada etapa.</p>
-            </div>
-          </AnimatedSection>
-        </div>
-
-
-        {/* Testimonios/experiencia de la empresa */}
-        <AnimatedSection animation="fade-in-up" delay={400} className="text-center max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold mb-8 text-primary">La Experiencia Loop & Logic</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Testimonio 1 */}
-            <div className="card-floating p-6 text-left relative overflow-hidden bg-[hsl(var(--card))] border border-primary/30 rounded-2xl shadow-premium">
-                <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
-                <p className="text-card-foreground/90 leading-relaxed mb-4 relative z-10 drop-shadow-md">
-                  "Un enfoque verdaderamente profesional y soluciones digitales innovadoras que están diseñadas para superar tus expectativas y transformar tu negocio."
-                </p>
-                <p className="font-semibold text-primary-foreground relative z-10 drop-shadow">- Enfoque y Visión</p>
-            </div>
-
-            {/* Testimonio 2 */}
-            <div className="card-floating p-6 text-left relative overflow-hidden bg-[hsl(var(--card))] border border-accent/30 rounded-2xl shadow-premium">
-                <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
-                <p className="text-card-foreground/90 leading-relaxed mb-4 relative z-10 drop-shadow-md">
-                  "Un equipo de desarrollo dedicado que entregará soluciones personalizadas y sistemas optimizados para revolucionar tus procesos internos."
-                </p>
-                <p className="font-semibold text-accent relative z-10 drop-shadow">- Eficiencia y Personalización</p>
-            </div>
-            
-            {/* Testimonio 3 */}
-            <div className="card-floating p-6 text-left relative overflow-hidden md:col-span-2 lg:col-span-1 mx-auto w-full bg-[hsl(var(--card))] border border-accent/30 rounded-2xl shadow-premium">
-                <Quote className="absolute top-4 left-4 h-16 w-16 text-accent/10 -z-0" />
-                <p className="text-card-foreground/90 leading-relaxed mb-4 relative z-10 drop-shadow-md">
-                  "Tecnología de vanguardia que impulsará tu conversión y un servicio excepcional, siempre disponible para asegurar tu éxito continuo."
-                </p>
-                <p className="font-semibold text-accent relative z-10 drop-shadow">- Innovación y Soporte</p>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Llamado a la acción final */}
-        <AnimatedSection animation="fade-in-up" delay={500} className="text-center mt-16">
-          <h3 className="text-3xl font-bold mb-6 text-foreground">¿Listo para impulsar tu negocio?</h3>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Descubre cómo nuestras soluciones personalizadas pueden transformar tu presencia digital.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a 
-              href="https://wa.me/573025922818?text=Hola,%20me%20gustaría%20agendar%20una%20consultoría%20gratuita%20sobre%20mi%20proyecto."
-              target="_blank"
-              rel="noopener noreferrer"
-              className='btn-primary'
-            >
-              Agenda una Consultoría Gratuita
-            </a>
-          </div>
+export const TestimonialsSection = () => (
+  <section id="compromiso" className="section-alt border-b border-border py-24">
+    <div className="container">
+      <AnimatedSection animation="fade-in-up">
+        <span className="kicker">Compromiso</span>
+        <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+          Lo que garantizamos al trabajar contigo
+        </h2>
       </AnimatedSection>
+
+      <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {COMMITMENTS.map((c, i) => (
+          <AnimatedSection key={c.title} animation="fade-in-up" delay={i * 80}>
+            <Card className="h-full">
+              <CardHeader>
+                <c.icon className="h-6 w-6 text-accent" />
+                <CardTitle className="text-base">{c.title}</CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm text-muted-foreground">{c.body}</CardContent>
+            </Card>
+          </AnimatedSection>
+        ))}
       </div>
-    </section>  
-  );
-};
+
+      {TESTIMONIALS.length > 0 ? (
+        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+          {TESTIMONIALS.map((t) => (
+            <Card key={t.name} className="h-full">
+              <CardContent className="pt-6">
+                <p className="text-sm leading-relaxed text-muted-foreground">"{t.quote}"</p>
+                <p className="mt-4 text-sm font-semibold text-foreground">{t.name}</p>
+                <p className="text-xs text-muted-foreground">{t.role}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      ) : (
+        <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-border bg-border lg:grid-cols-4">
+          {METRICS.map((m) => (
+            <div key={m.label} className="bg-card p-6 text-center">
+              <p className="font-display text-3xl font-bold text-foreground">{m.value}</p>
+              <p className="mt-1 text-xs text-muted-foreground">{m.label}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      <AnimatedSection animation="fade-in-up" className="mt-16 text-center">
+        <h3 className="text-2xl font-bold tracking-tight">¿Listo para impulsar tu negocio?</h3>
+        <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+          Una llamada de 20 minutos para revisar tu idea y decirte cómo la abordaríamos.
+        </p>
+        <Button asChild size="lg" className="mt-6">
+          <a href={WA_LINK} target="_blank" rel="noopener noreferrer">
+            Agenda una consultoría gratuita
+          </a>
+        </Button>
+      </AnimatedSection>
+    </div>
+  </section>
+);
 
 export default TestimonialsSection;

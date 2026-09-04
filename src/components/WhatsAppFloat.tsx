@@ -1,38 +1,22 @@
+import { FaWhatsapp } from 'react-icons/fa';
 
-import { FaWhatsapp } from "react-icons/fa";
-import {useState} from "react";
+const MSG = encodeURIComponent(
+  '¡Hola! Me interesa conocer más sobre los servicios de Loop & Logic DevHouse.',
+);
 
-export const WhatsAppFloat = () => {
-  const [showTooltip, setShowTooltip] = useState(false);
+export const WhatsAppFloat = () => (
+  <a
+    href={`https://wa.me/573025922818?text=${MSG}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    className="group fixed bottom-6 right-6 z-[9999] flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-accent shadow-lg transition-transform hover:scale-105"
+  >
+    <FaWhatsapp className="h-5 w-5" />
+    <span className="pointer-events-none absolute right-14 whitespace-nowrap rounded-md border border-border bg-card px-3 py-1.5 text-xs text-foreground opacity-0 transition-opacity group-hover:opacity-100">
+      Chatea con nosotros
+    </span>
+  </a>
+);
 
-  const handleWhatsAppClick = () => {
-    const message = encodeURIComponent(
-      "¡Hola! Me interesa conocer más sobre los servicios de Loop & Logic DevHouse. ¿Podrían darme más información?"
-    );
-
-    const whatsappUrl = `https://wa.me/3025922818?text=${message}`;
-    window.open(whatsappUrl, "_blank");
-  };
-
-  return (
-    <div
-      className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end"
-      onMouseEnter={() => setShowTooltip(true)}
-      onMouseLeave={() => setShowTooltip(false)}
-    >
-      {showTooltip && (
-        <div className="mb-2 px-3 py-2 bg-white text-gray-800 rounded-lg text-sm font-medium shadow-lg z-[10000] whitespace-nowrap" style={{ position: "absolute", bottom: 0, right: 70 }}>
-          ¡Chatea con nosotros!
-        </div>
-      )}
-      <button
-        onClick={handleWhatsAppClick}
-        className="bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-all duration-300 hover:bg-green-400 flex items-center justify-center"
-        aria-label="Contactar por WhatsApp"
-        style={{ width: 56, height: 56 }}
-      >
-        <FaWhatsapp className="h-6 w-6" />
-      </button>
-    </div>
-  );
-};
+export default WhatsAppFloat;

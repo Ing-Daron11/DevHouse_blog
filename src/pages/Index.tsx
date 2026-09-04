@@ -1,34 +1,33 @@
-
+import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
+import StackSection from '@/components/StackSection';
 import ServicesSection from '@/components/ServicesSection';
-import PartnersSection from '@/components/PartnersSection';
+import WorkSection from '@/components/WorkSection';
+import ProcessSection from '@/components/ProcessSection';
+import AboutUsSection from '@/components/AboutUsSection';
+import { TestimonialsSection } from '@/components/TestimonialsSection';
+import GuaranteesSection from '@/components/GuaranteesSection';
+import BlogSection from '@/components/BlogSection';
 import ContactSection from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
-import AboutUsSection from '@/components/AboutUsSection';
-import TestimonialsSection from '@/components/TestimonialsSection';
-import BlogSection from '@/components/BlogSection';
-import ProcessSection from '@/components/ProcessSection';
-import GuaranteesSection from '@/components/GuaranteesSection';
-import { WhatsAppFloat } from '@/components/WhatsAppFloat';
-import React from 'react';
 
-
-const Index = () => {
-  return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#22313A] font-sans selection:bg-accent/20">
+const Index = () => (
+  <div className="min-h-screen bg-background text-foreground">
+    <Header />
+    <main>
       <HeroSection />
-      <AboutUsSection />
+      <StackSection />
       <ServicesSection />
+      <WorkSection />
       <ProcessSection />
-      <PartnersSection />
+      <AboutUsSection />
       <TestimonialsSection />
-      <BlogSection />
       <GuaranteesSection />
+      <BlogSection />
       <ContactSection />
-      <Footer />
-      <WhatsAppFloat />
-    </div>
-  );
-};
+    </main>
+    <Footer />
+  </div>
+);
 
 export default Index;
